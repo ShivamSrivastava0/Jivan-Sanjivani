@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga And Exercises</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #80435f;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .name {
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .nav-container a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav-container a:hover {
+            text-decoration: underline;
+        }
+
+        .search input {
+            width: 250px;
+            padding: 8px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly; 
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            width: calc(45% - 20px); 
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px; 
+            object-fit: cover;
+        }
+
+        .card .yoga-name {
+            font-size: 24px; 
+            font-weight: bold;
+            padding: 10px 0;
+        }
+
+        .card .about-yoga {
+            font-size: 18px; 
+            padding: 0 10px 10px;
+            color: #555;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(100% - 40px); 
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/4022/4022533.png" alt="Logo">
+                <div class="name">Yoga & Exercise</div>
+            </div>
+            <div class="nav-container">
+                <a href="home.html">Home</a>
+                <a href="yoga_exercise.html">Yoga</a>
+                <a href="eatclean.html">Eat clean</a>
+                <a href="#aushadhi">Aushadhi</a>
+                <a href="https://www.google.com/search?client=firefox-b-d&sca_esv=d15c5ee1369c1e0a&tbm=lcl&q=hospital+near+me&rflfq=1&num=10&sa=X&ved=2ahUKEwj1kPT-t7KLAxWlxjgGHZPvJOsQjGp6BAgiEAE&biw=1248&bih=594&dpr=1.54#rlfi=hd:;si:;mv:[[31.373592499999997,75.7892097],[31.2050284,75.5424278]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!2m4!1e17!4m2!17m1!1e2!3sIAE,lf:1,lf_ui:2">Nearby Doctors</a>
+            </div>
+            <div class="nav-search">
+                <input list="inputValue" id="inputValue" type="search" placeholder="Search...">
+                <button onclick="getValue()">Submit</button>
+                <datalist id="inputValue">
+                    <option value="Yoga">
+                    <option value="Eat Clean">
+                </datalist>
+            </div>
+        </div>
+    </header>
+
+    <section class="card-container">
+        <div class="card">
+            <img src="‎i1.jpeg" alt="Yoga Pose 1">
+            <div class="yoga-name">HATHA AASAN</div>
+            <div class="about-yoga">
+<pre> Asanas  A Foundation of Yoga
+Hatha Yoga is one of the oldest branches of
+ yoga 
+that focuses on physical postures (asanas), 
+breathing techniques (pranayama),  and 
+meditation to balance the body and mind.
+ The word Hatha is derived from Sanskrit,
+  where “Ha” means sun and “Tha” meanmoon,
+   symbolizing the balance of energy in the 
+   body.
+                
+ Benefits of Hatha Asanas
+ Practicing Hatha asanas regularly can:
+✔ Improve flexibility and strength
+✔ Enhance posture and balance
+✔ Reduce stress and anxiety
+✔ Boost overall health and immunity
+✔ Increase focus and mindfulness
+                
+.</pre></div>
+        </div>
+        <div class="card">
+            <img src="i2.jpeg" alt="Yoga Pose 2">
+            <div class="yoga-name">VINYASA AASAN</div>
+            <div class="about-yoga"><pre>
+Vinyasa Asanas – The Flowing Yoga
+Vinyasa Yoga is a dynamic style of yoga 
+that synchronizes movement with breath.
+The word Vinyasa comes from Sanskrit, 
+meaning “to place in a special way,” 
+referring to the smooth transition 
+between poses. Unlike Hatha Yoga, which
+focuses on holding poses for a longer time,
+ Vinyasa is more fluid and energetic. 
+                
+Key Features of Vinyasa Yoga 
+-Flow-Based Practice – Movements are linked 
+together in a continuous sequence.
+-Breath-Synchronized Movements – Every
+ movement is guided by an inhale or exhale.
+-Dynamic and Energetic – Helps build heat
+ in the body, improving circulation and 
+ flexibility.-Variety in Practice – No fixed
+  sequence, allowing creativity in practice.
+                
+<b>Benefits of Vinyasa Asanas</b>
+Enhances cardiovascular health
+Improves flexibility and strength
+Reduces stress and anxiety
+Boosts mindfulness and focus
+Aids in weight loss
+                
+
+                
+</pre></div>
+</div>
+        <div class="card">
+            <img src="i3.jpeg" alt="Yoga Pose 3">
+            <div class="yoga-name">ASHTANGA AASAN</div>
+            <div class="about-yoga"><pre>
+Ashtanga Asanas – The Structured and Powerful
+ Practice Ashtanga Yoga is a disciplined and
+structured form of yoga that follows a set
+ sequence of asanas combined with breath 
+ control (pranayama) and focused gaze (drishti)
+. The word Ashtanga comes from Sanskrit,
+meaning "Eight Limbs", referring to the 
+eightfold path of yoga outlined by Maharishi 
+Patanjali.
+                
+Unlike Vinyasa Yoga, which is more flexible in
+ sequence, Ashtanga follows a fixed series of
+ poses that are practiced in a specific order,
+ making it a disciplined and physically 
+demanding style.
+                
+Key Features of Ashtanga Yoga
+Traditional and Structured – Follows a set 
+series of postures.Dynamic and Physically
+ Intensive – Builds strength, flexibility, 
+and endurance.Breath-Synchronized Movements 
+– Uses Ujjayi breathing to control 
+breath and energy.
+                
+Benefits of Ashtanga Yoga
+Improves flexibility, strength, and stamina
+Enhances mental focus and discipline
+Detoxifies the body through sweat and deep 
+breathing
+Promotes weight loss and cardiovascular health
+Develops mindfulness and inner awareness</pre></div>
+        </div>
+        <div class="card">
+            <img src="i4.jpeg" alt="Yoga Pose 4">
+            <div class="yoga-name">IYENGAR AASAN</div>
+            <div class="about-yoga"><pre>
+Iyengar Asanas – Precision, Alignment, 
+and Stability Iyengar Yoga is a style 
+of yoga that emphasizes precision, 
+alignment, and the use of props to help 
+practitioners achieve perfect posture 
+in each asana. Founded by B.K.S. Iyengar,
+ this method is known for its attention 
+ to detail and therapeutic benefits.
+                
+Unlike Ashtanga or Vinyasa yoga, which focus
+on flow and intensity, Iyengar Yoga is slower
+and more methodical, making it ideal for 
+people recovering from injuries, beginners,
+ or those looking to 
+ refine their practice.
+                
+
+                
+Benefits of Iyengar Yoga
+Improves posture and body awareness
+Enhances flexibility and strength gradually
+reduces stress and calms the nervous system
+Helps with rehabilitation and injury recovery
+Develops balance and endurance</pre></div>
+        </div>
+        <div class="card">
+            <img src="i5.jpeg" alt="Yoga Pose 5">
+            <div class="yoga-name">BIKRAM AASAN</div>
+            <div class="about-yoga"><pre>
+Bikram Asanas – The 26-Pose Hot Yoga Sequence
+Bikram Yoga is a structured style of yoga
+developed by Bikram Choudhury, consisting
+of 26 asanas (postures) and 2 pranayama
+(breathing exercises) performed in a 
+room heated to 105°F (40°C) with 40% 
+humidity. The heat helps to improve 
+flexibility, detoxify the body through
+sweat, and enhance cardiovascular endurance.
+                
+Unlike Vinyasa or Ashtanga, which allow 
+variation, Bikram Yoga follows the same 
+90-minute sequence every time, making it 
+a disciplined and predictable practice.
+                
+
+Benefits of Bikram Yoga
+Detoxifies the body through intense sweating
+Improves flexibility and joint mobility
+Boosts cardiovascular health and stamina
+Increases lung capacity and breath control
+Reduces stress and enhances mental focus</pre></div>
+        </div>
+        <div class="card">
+            <img src="i6.jpeg" alt="Yoga Pose 6">
+            <div class="yoga-name">KUNDALINI AASAN</div>
+            <div class="about-yoga"><pre>
+Kundalini Asanas – Awakening Inner Energy
+Kundalini Yoga is a spiritual and physica
+practice that focuses on awakening the 
+dormant Kundalini energy at the base of
+the spine. This style of yoga, popularized
+by Yogi Bhajan, combines dynamic asanas 
+(postures), pranayama (breathwork), mantra
+chanting, and meditation to activate 
+energy flow through the chakras.
+                
+Unlike Hatha or Vinyasa Yoga, which focus 
+mainly on physical movement, Kundalini Yoga
+ is deeply spiritual and aims to elevate 
+ consciousness
+                
+Benefits of Kundalini Yoga
+Increases energy and vitality
+Improves mental clarity and intuition
+Strengthens the nervous system
+Reduces stress and enhances emotional balance
+Deepens spiritual awareness and mindfulness</pre></div>
+        </div>
+    </section>
+    <script>
+        function getValue() {
+            var inputValue = document.getElementById('inputValue').value;
+            if (inputValue === "") {
+                alert("Please enter a value");
+                return;
+            } else if (inputValue.toLowerCase() === "eat clean") {
+                window.location.href = "eatclean.html?value=" + encodeURIComponent(inputValue);
+            } else if (inputValue.toLowerCase() === "yoga") {
+                window.location.href = "yoga_exercise.html?value=" + encodeURIComponent(inputValue);
+            }else if (inputValue.toLowerCase() === "nearby doctors") {
+                window.location.href = "https://www.google.com/search?client=firefox-b-d&sca_esv=d15c5ee1369c1e0a&tbm=lcl&q=hospital+near+me&rflfq=1&num=10&sa=X&ved=2ahUKEwj1kPT-t7KLAxWlxjgGHZPvJOsQjGp6BAgiEAE&biw=1248&bih=594&dpr=1.54#rlfi=hd:;si:;mv:[[31.373592499999997,75.7892097],[31.2050284,75.5424278]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!2m4!1e17!4m2!17m1!1e2!3sIAE,lf:1,lf_ui:2?value=" + encodeURIComponent(inputValue);
+            }
+            else if (inputValue.toLowerCase() === "contact") {
+                window.location.href = "https://www.doctronic.ai/ai-online-doctor/?value=" + encodeURIComponent(inputValue);}
+             else {
+                alert("Item not present");
+            }
+        }
+        </script>
+</body>
+
+</html>

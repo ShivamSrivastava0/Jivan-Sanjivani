@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jivan Sanjivani</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        
+        
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .health-tips {
+    background-color: #e0ffe0;
+    color: #004d66;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.tr {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.features-section {
+    background-color: #e0ffe0;
+    color: #004d66;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    display: flex;
+    height: 80px; 
+    width: 100%;
+    background-color: #004d40;
+    color: white;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    border-bottom: 4px solid #ffffff;
+
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+}
+
+
+body {
+    padding-top: 90px; 
+}
+
+
+
+        h1 { color: white; }
+
+        .navi {
+            display: flex;
+            gap: 20px;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .rr {
+            height: 80px;
+            width: 80px;
+        }
+
+        button {
+            border-radius: 8px;
+            background-color: #009688;
+            border: none;
+            color: #ffffff;
+            transition: background-color 0.3s, transform 250ms;
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #00796B;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-search input {
+            border-radius: 12px;
+            height: 40px;
+            width: 260px;
+            border: 2px solid black;
+            padding-left: 10px;
+            color: black;
+        }
+
+        .ho {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            background: linear-gradient(90deg, #004d40 0%, #00bfa5 63%, #80cbc4 100%);
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding: 20px;
+                    }
+
+        .section {
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 50px;
+            position: relative;  }
+
+        .health-tips { background-color: #c5dac5; color: #003366; }
+        .tr { background-color: #f0f0f0; }
+        .features-section { background-color: #c5dac5; color: #003366; }
+
+        .section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background-color: #009688;
+        }
+
+        .features ul {
+            list-style-type: square;
+            font-size: 1.5rem;
+            text-align: left;
+            padding-left: 50px;
+        }
+
+        .container {
+            background-color: #e3edc9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(96, 95, 95, 0.2);
+            max-width: 600px;
+            width: 100%;
+            margin: 50px auto; 
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .streak {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .day {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #e6f2f5;
+            border-radius: 8px;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+
+        .day:hover {
+            transform: translateY(-5px);
+        }
+
+        .day span {
+            margin-bottom: 5px;
+            color: #2e8b57;
+        }
+
+        .counter {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #2e8b57;
+        }
+
+        select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+        }
+
+        li{
+            color: rgb(14, 14, 14);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #right{    
+ text-align: right;  
+ }
+
+* { color:#fff; text-decoration: none;}
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="header">
+        <div class="icon">
+            <img src="logo.png" class="rr" alt="Logo">
+            <h1><b>Jivan<br>Sanjivani</b></h1>
+        </div>
+
+        <div class="navi">
+            <a href="yoga_exercise.html"><button class="btn">Yoga</button></a>
+            <a href="aushadhi.html"><button class="btn">Aushadhi</button></a>
+            <a href="https://www.google.com/search?client=firefox-b-d&sca_esv=d15c5ee1369c1e0a&tbm=lcl&q=hospital+near+me&rflfq=1&num=10&sa=X&ved=2ahUKEwj1kPT-t7KLAxWlxjgGHZPvJOsQjGp6BAgiEAE&biw=1248&bih=594&dpr=1.54#rlfi=hd:;si:;mv:[[31.373592499999997,75.7892097],[31.2050284,75.5424278]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!2m4!1e17!4m2!17m1!1e2!3sIAE,lf:1,lf_ui:2"><button class="btn">Nearby Doctors</button></a>
+            <a href="eatclean.html"><button class="btn">Eat Clean</button></a>
+        </div>
+
+        <div class="nav-search">
+            <input list="inputValue" id="inputValue" type="search" placeholder="Search...">
+            <button onclick="getValue()">Submit</button>
+            <datalist id="inputValue">
+                <option value="Yoga">
+                <option value="Eat Clean">
+            </datalist>
+        </div>
+    </div>
+</nav>
+
+<div class="ho">
+<h1>
+        <a href="" class="typewrite" data-period="1200" data-type='[ "Welcome, to JIVAN SANJIVANI.", "Your Health Companion.", "Yoga & Exercises", "Be Ready for any Medical Emergiencies." ]'>
+          <span class="wrap"></span>
+        </a>
+      </h1> <br>
+     <div id="right"> <img src="gh1.png" alt="" style=""></div>
+          
+    </div>
+
+    <div class="section health-tips" style="background: linear-gradient(135deg, #e0ffe0, #b2dfdb); padding: 30px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <h2 style="text-align: center; font-size: 2.5rem; text-transform: uppercase; font-weight: bold; color: #004d66; margin-bottom: 20px; border-bottom: 3px solid #009688; display: inline-block; padding-bottom: 5px;">Health Tips</h2>
+        
+        <ul style="list-style: none; padding: 0; margin: 20px auto; max-width: 800px;">
+            <li style="display: flex; align-items: center; background: #5d92af; padding: 15px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <span style="font-size: 1.4rem; color: #004d66;"><h3>What to Do in Case of Choking (Heimlich Maneuver)</h3>
+          <br>      <h5>For Adults & Children (Above 1 Year):</h5> <br>
+            <ul><li style="display: flex; align-items: center; background: #eeefef; padding: 15px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">Stand behind the choking person and wrap your arms around their waist.</li>
+            <li style="display: flex; align-items: center; background: #eeefef; padding: 15px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">Make a fist with one hand and place it just above the navel.</li>
+            <li style="display: flex; align-items: center; background: #eeefef; padding: 15px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">Grasp the fist with your other hand and give quick, inward and upward thrusts.</li>
+            <li style="display: flex; align-items: center; background: #eeefef; padding: 15px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">Repeat until the object is expelled.</li>
+            </ul></span>
+            </li>
+            
+        </ul>
+    </div>
+    
+    
+    <div class="streak-container">
+        <h2>Monthly Streak Tracker</h2>
+        <div class="controls">
+            <label for="monthSelect">Select Month:</label>
+            <select id="monthSelect">
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+        
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+    
+        <div class="streak-grid" id="streakContainer"></div>
+        
+        <div class="streak-counter">
+            <span id="counter">Total Streak: 0</span>
+            <span id="daysCounter"></span>
+        </div>
+    </div>
+    
+    <style>
+        * {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        .streak-container {
+            background: linear-gradient(135deg, #f7cac9, #92a8d1);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+    
+        h2 {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+    
+        .controls {
+            margin-bottom: 20px;
+        }
+    
+        .controls label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    
+        .controls select {
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: none;
+            background: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #5d5c61;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+    
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+    
+        #progressFill {
+            height: 100%;
+            width: 0%;
+            background: #ffffff;
+            transition: width 0.3s ease-in-out;
+        }
+    
+        .streak-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            padding: 10px;
+        }
+    
+        .day {
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .day:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    
+        .day.active {
+            background: #2c3e50 !important;
+            color: #ffffff !important;
+            transform: scale(1.1);
+        }
+    
+        .streak-counter {
+            margin-top: 20px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    
+        .streak-counter span {
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+    
+    <script>
+        let streakCount = 0;
+        let selectedDays = [];
+    
+        function generateDays() {
+            const monthSelect = document.getElementById("monthSelect");
+            const month = monthSelect.value;
+            const streakContainer = document.getElementById("streakContainer");
+            const counter = document.getElementById("counter");
+            const daysCounter = document.getElementById("daysCounter");
+            const progressFill = document.getElementById("progressFill");
+    
+            const colors = [
+                "#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", 
+                "#a0c4ff", "#bdb2ff", "#ffc6ff", "#ff85a1", "#f2a65a"
+            ];
+    
+            streakContainer.innerHTML = "";
+            streakCount = 0;
+            selectedDays = [];
+    
+            const daysInMonth = new Date(2024, month, 0).getDate();
+    
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayDiv = document.createElement("div");
+                dayDiv.className = "day";
+                dayDiv.innerHTML = `<span>${day}</span>`;
+                dayDiv.style.backgroundColor = colors[day % colors.length];
+    
+                if (localStorage.getItem(`streak-${month}-${day}`) === "true") {
+                    dayDiv.classList.add("active");
+                    selectedDays.push(day);
+                }
+    
+                dayDiv.onclick = function () {
+                    if (this.classList.contains("active")) {
+                        this.classList.remove("active");
+                        selectedDays = selectedDays.filter(d => d !== day);
+                        localStorage.removeItem(`streak-${month}-${day}`);
+                    } else {
+                        this.classList.add("active");
+                        selectedDays.push(day);
+                        localStorage.setItem(`streak-${month}-${day}`, "true");
+                    }
+                    updateCounter(daysInMonth);
+                };
+    
+                streakContainer.appendChild(dayDiv);
+            }
+    
+            updateCounter(daysInMonth);
+        }
+    
+        function updateCounter(daysInMonth) {
+            streakCount = selectedDays.length;
+            document.getElementById("counter").textContent = `Total Streak: ${streakCount}`;
+            document.getElementById("daysCounter").textContent = `Selected Days: ${selectedDays.join(", ") || "None"}`;
+    
+            let progress = (streakCount / daysInMonth) * 100;
+            document.getElementById("progressFill").style.width = `${progress}%`;
+        }
+    
+        generateDays();
+        document.getElementById("monthSelect").addEventListener("change", generateDays);
+    </script>
+    
+  
+    
+    
+
+<div style="background: linear-gradient(135deg, #f0f9ff, #cce7ff); padding: 50px; border-radius: 16px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); text-align: center;">
+    <h2 style="font-size: 2.8rem; font-weight: 700; color: #003366; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 4px solid #007acc; display: inline-block; padding-bottom: 8px;">
+        Our Features & Offerings
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1100px; margin: 0 auto;">
+        <div style="background: #ffffff; padding: 25px; border-radius: 12px; width: 320px; text-align: center; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+             onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.15)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.1)';">
+             
+            <h3 style="font-size: 1.6rem; color: #003366;">Yoga & Exercises</h3>
+            <p style="font-size: 1.2rem; color: #004d66;">Recommends different yoga asans & exercises according to your health issues.</p>
+        </div>
+
+        <div style="background: #ffffff; padding: 25px; border-radius: 12px; width: 320px; text-align: center; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+             onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.15)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.1)';" href a="https://www.doctronic.ai/ai-online-doctor/">
+            
+            <h3 style="font-size: 1.6rem; color: #003366;">24/7 Consultation</h3>
+            <p style="font-size: 1.2rem; color: #004d66;">Access expert medical advice anytime with our round-the-clock consultation services.</p>
+        </div>
+
+        <div style="background: #ffffff; padding: 25px; border-radius: 12px; width: 320px; text-align: center; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+             onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.15)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.1)';">
+             
+            <h3 style="font-size: 1.6rem; color: #003366;">Health Tracking</h3>
+            <p style="font-size: 1.2rem; color: #004d66;">Monitor your health stats and progress with our easy-to-use tracking tools.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getValue() {
+        var inputValue = document.getElementById('inputValue').value;
+        if (inputValue === "") {
+            alert("Please enter a value");
+            return;
+        } else if (inputValue.toLowerCase() === "eatclean") {
+            window.location.href = "eatclean.html?value=" + encodeURIComponent(inputValue);
+        } else if (inputValue.toLowerCase() === "yoga") {
+            window.location.href = "yoga_exercise.html?value=" + encodeURIComponent(inputValue);
+        }else if (inputValue.toLowerCase() === "nearby doctors") {
+            window.location.href = "https://www.google.com/search?client=firefox-b-d&sca_esv=d15c5ee1369c1e0a&tbm=lcl&q=hospital+near+me&rflfq=1&num=10&sa=X&ved=2ahUKEwj1kPT-t7KLAxWlxjgGHZPvJOsQjGp6BAgiEAE&biw=1248&bih=594&dpr=1.54#rlfi=hd:;si:;mv:[[31.373592499999997,75.7892097],[31.2050284,75.5424278]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!2m4!1e17!4m2!17m1!1e2!3sIAE,lf:1,lf_ui:2?value=" + encodeURIComponent(inputValue);
+        }
+        else if (inputValue.toLowerCase() === "contact") {
+            window.location.href = "https://www.doctronic.ai/ai-online-doctor/?value=" + encodeURIComponent(inputValue);}
+         else {
+            alert("Item not present");
+        }
+    }
+
+
+var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+</script>
+</body> 
+</html> 

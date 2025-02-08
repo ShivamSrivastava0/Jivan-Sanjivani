@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jivan Sanjivani</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #f4f4f4, #ffffff);
+            overflow-x: hidden;
+        }
+        #right{    
+ text-align: right;  
+ }
+        .header {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background-color: #80435f;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            z-index: 1000; 
+        }
+
+        .header img {
+            height: 60px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .header img:hover {
+            transform: rotate(360deg); 
+        }
+
+        .header .website-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+            color: #ffd700;
+        }
+
+        .nav-search {
+            position: relative;
+        }
+
+        .search {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search:focus {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 80px; 
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .grid-item {
+            width: 100%;
+            height: 300px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .section1 { background-color: rgb(146, 171, 173); }
+        .section2 { background-color: rgb(171, 210, 173); }
+        .section3 { background-color: rgb(146, 171, 173); }
+
+        .grid-item img {
+            width: 40%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .text-content {
+            width: 55%;
+            font-size: 18px;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="header">
+            <div style="display: flex; align-items: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/4022/4022533.png" alt="Logo">
+                <span class="website-name">Jivan Sanjivani</span> 
+            </div>
+            <div>
+                <a href="home.html" class="an">Home</a>
+                <a href="eatclean.html" class="an">Eat Clean</a>
+                <a href="yoga_exercise.html" class="an">Yoga</a>
+                <a href="https://www.google.com/search?client=firefox-b-d&sca_esv=d15c5ee1369c1e0a&tbm=lcl&q=hospital+near+me" class="an">Nearby Doctors</a>
+            </div>
+            <div class="nav-search">
+                <input list="inputValue" id="inputValue" type="search" placeholder="Search...">
+                <button onclick="getValue()">Submit</button>
+                <datalist id="inputValue">
+                    <option value="Yoga">
+                    <option value="Eat Clean">
+                </datalist>
+            </div>
+        </div>
+    </nav>
+
+    <div class="grid-container">
+        <div class="grid-item section1">
+            <img src="new3.jpeg" alt="Health Precautions">
+            <div class="text-content">
+                <h2>STAY Hydrated</h2>
+                <ul>
+                    <li>Drink at least <strong>8 glasses of water</strong> daily.</li>
+                    <li>Helps with <strong>digestion</strong>, <strong>skin health</strong>, and <strong>energy levels</strong>.</li>
+                </ul>
+                
+            </div>
+        </div>
+
+        <div class="grid-item section1">
+            <img src="new2.jpeg" alt="Health Precautions">
+            <div class="text-content">
+                <h2>GET ENOUGH SLEEP</h2>
+                <ul>
+                    <li>Aim for <strong>7-9 hours of sleep</strong> each night.</li>
+                    <li>Supports <strong>brain function</strong>, <strong>mood</strong>, and overall <strong>well-being</strong>.</li>
+                </ul>
+                
+                
+            </div>
+        </div>
+
+        <div class="grid-item section1">
+            <img src="new1.jpeg" alt="Health Precautions">
+            <div class="text-content">
+                <h2>STAY ACTIVE</h2>
+                <ul>
+                    <li>Do at least <strong>30 minutes of exercise</strong> daily (walking, yoga, or workouts).</li>
+                    <li>Improves <strong>heart health</strong>, reduces <strong>stress</strong>, and boosts <strong>immunity</strong>.</li>
+                </ul>
+                
+            </div>
+        </div>
+
+        <div class="grid-item section2">
+            <img src="honey.jpeg" alt="Home Remedies">
+            <div class="text-content">
+                <h2>GINGER AND HONEY TEA</h2>
+                <p>Boil ginger in water and add honey for relief from sore throat and nausea.</p>
+            </div>
+        </div>
+
+        <div class="grid-item section2">
+            <img src="haldi.jpeg" alt="Home Remedies">
+            <div class="text-content">
+                <h2>TURMERIC MILK</h2>
+                <p>Mix turmeric powder in warm milk to boost immunity and reduce inflammation</p>
+            </div>
+        </div>
+
+        <div class="grid-item section2">
+            <img src="steam.jpeg" alt="Home Remedies">
+            <div class="text-content">
+                <h2>STEAM INHALATION</h2>
+                <p>Inhale steam with eucalyptus oil to clear congestion and ease breathing..</p>
+            </div>
+        </div>
+
+        <div class="grid-item section3">
+            <img src="hygen.jpeg" alt="Health Tips">
+            <div class="text-content">
+                <h2>MAINTAIN HYGINE</h2>
+                <p>Wash your hands regularly with soap and water to prevent infections</p>
+            </div>
+        </div>
+
+        <div class="grid-item section3">
+            <img src="eat.jpeg" alt="Health Tips">
+            <div class="text-content">
+                <h2>EAT BALANCED DIET</h2>
+                <p>Wash your hands regularly with soap and water to prevent infections</p>
+            </div>
+        </div>
+
+        <div class="grid-item section3">
+            <img src="face.jpeg" alt="Health Tips">
+            <div class="text-content">
+                <h2>AVOID TOUCHING YOUR FACE</h2>
+                <p>Keep your hands away from your eyes, nose, and mouth to reduce germ exposure</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function getValue() {
+            var inputValue = document.getElementById('inputValue').value;
+            if (inputValue === "") {
+                alert("Please enter a value");
+                return;
+            } else if (inputValue.toLowerCase() === "eatclean") {
+                window.location.href = "eatclean.html?value=" + encodeURIComponent(inputValue);
+            } else if (inputValue.toLowerCase() === "yoga") {
+                window.location.href = "yoga_exercise.html?value=" + encodeURIComponent(inputValue);
+            }else if (inputValue.toLowerCase() === "nearby doctors") {
+                window.location.href = "https://www.google.com/search?client=firefox-b-d&sca_esv=d15c5ee1369c1e0a&tbm=lcl&q=hospital+near+me&rflfq=1&num=10&sa=X&ved=2ahUKEwj1kPT-t7KLAxWlxjgGHZPvJOsQjGp6BAgiEAE&biw=1248&bih=594&dpr=1.54#rlfi=hd:;si:;mv:[[31.373592499999997,75.7892097],[31.2050284,75.5424278]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!2m4!1e17!4m2!17m1!1e2!3sIAE,lf:1,lf_ui:2?value=" + encodeURIComponent(inputValue);
+            }
+            else if (inputValue.toLowerCase() === "contact") {
+                window.location.href = "https://www.doctronic.ai/ai-online-doctor/?value=" + encodeURIComponent(inputValue);}
+             else {
+                alert("Item not present");
+            }
+        }
+        </script>
+</body>
+</html>

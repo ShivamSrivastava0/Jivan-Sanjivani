@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: right;
+            background-color: #000000;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 10px;
+            padding-right: 50px;
+            border-radius: 8px;
+            height: 600px;
+            width: 800px;
+            justify-content: center;
+        }
+        .login-option {
+            margin-bottom: 10px;  
+        }
+        .login-option input {
+            width: 50%;
+            padding-left: 10px;
+            margin-left: 34px;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #e96464;
+            border-radius: 4px;
+        }
+        /* .login-option button:hover {
+            width: 50%;
+            padding: 10px;
+            background-color: #c2e7c3;
+            color: rgb(161, 20, 20);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            align-items: center;
+        }    */
+button:hover{
+    background-color: #191818;
+    color: white;
+}
+        button{width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: rgb(246, 235, 235);
+
+            cursor: pointer;
+            align-items: center;
+            background-color: #4CAF50;
+        }
+        h1 {
+            font-family: gilroy;
+            color: white;
+        }
+        .container {
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .left-section {
+            background: linear-gradient(135deg, #2200ff, #FF6A00);
+            color: white;
+            padding: 190px;
+            flex-direction: column;
+        }
+        .left-section h2 {
+            font-size: 36px;
+        }
+        .right-section {
+            flex: 1;
+            padding: 100px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .right-section h3 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-section">
+        <h2 style="font-family: gilroy;">TRANSFORM YOUR HEALTH <br> WITH JIVAN SANJIVANI</h2>
+        <p style="font-style: oblique; font-family: 'serif';">"Daily Spending 5-mins to our website can make you prepared for any future Medical Emergencies."</p>
+    </div>
+    <div class="container">
+        <div class="right-section">
+            <div class="login-container">
+                <h2 style="font-family:'Trebuchet MS', sans-serif;"><b>Hi, Welcome! Please Login:</b><hr></h2>
+                <form id="loginForm">
+                    <div class="login-option">
+                        <h3><input type="password" id="email" name="email" placeholder="Email ID" required></h3>
+                    </div>
+                    <div class="login-option">
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="login-option">
+                        <button type="submit" style="width: 250px;" class="button" style="background-color: #4CAF50;">Login </button>
+                        <div id="errorMessage" style="display:none; color:red;">Invalid login credentials!</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Validation and sanitization
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById('errorMessage').innerText = 'Invalid email format!';
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            if (password.length < 8) {
+                document.getElementById('errorMessage').innerText = 'Password must be at least 8 characters long!';
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            // Example authentication logic
+            if (email === 'admin@gmail.com' && password === 'password') {
+                window.location.href = 'home.html';
+            } else {
+                document.getElementById('errorMessage').innerText = 'Invalid login credentials!';
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
