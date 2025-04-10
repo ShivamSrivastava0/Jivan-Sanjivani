@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jivan Sanjivani</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f4f4f4, #ffffff);
+            overflow-x: hidden;
+        }
+
+        .intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('https://source.unsplash.com/1600x900/?healthy-food') center/cover no-repeat; /* Health-themed image */
+    color: rgb(45, 48, 46);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 2000;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    letter-spacing: 2px;
+    animation: fadeScale 2s ease-in-out;
+}
+
+@keyframes fadeScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+.content {
+            display: none;
+            animation: fade-in 1s ease-out forwards;
+}
+
+
+        nav {
+            background-color: white;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .an {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .an:hover {
+            text-decoration: underline;
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5rem;
+            color: #333;
+        }
+    </style>
+       <style>
+        @media (max-width: 768px) {
+    .food-items-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .food-item {
+        flex-basis: 100%;
+    }
+}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f4f4f4, #ffffff);
+            overflow-x: hidden;
+        }
+
+        .header {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background-color: #80435f;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            z-index: 1000; 
+        }
+
+        .header img {
+            height: 60px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .header img:hover {
+            transform: rotate(360deg); 
+        }
+
+        .header .website-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+            color: #ffd700;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-search input {
+            border-radius: 12px;
+            height: 40px;
+            width: 260px;
+            border: 2px solid black;
+            padding-left: 10px;
+            color: black;
+        }
+        .nav-search input {
+    border-radius: 12px;
+    height: 40px;
+    width: 260px;
+    border: 2px solid #ffffff; /* Match hover color */
+    padding-left: 10px;
+    color: black;
+    outline: none;
+}
+
+/* Style the Submit Button */
+.nav-search button {
+    background-color: #eef0f0; /* Match hover color */
+    color: rgb(151, 150, 150);
+    border: none;
+    padding: 10px 15px;
+    margin-left: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+   
+}
+
+.nav-search button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+
+        .search {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search:focus {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            margin: 100px 20px 20px 20px;
+            animation: fade-in 1s ease-out; 
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .food-items-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .food-item {
+            background: linear-gradient(to bottom, #ffffff, #f4f4f4);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(245, 242, 242, 0.948); 
+            border-radius: 10px;
+            transition: transform 0.3s ease, z-index 0.3s ease; 
+            flex-basis: calc(50% - 10px); 
+            box-sizing: border-box;
+            cursor: pointer; 
+            position: relative; 
+        }
+
+        .food-item:hover {
+            transform: scale(1.05);
+        }
+
+        .food-item.active {
+            z-index: 1000;
+            transform: scale(1.1);
+        }
+
+        .blurred {
+            filter: blur(4px);
+        }
+
+        .food-item .image-box {
+            height: 200px; 
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px; 
+            background-color: #f9f9f9; 
+            border-radius: 10px; 
+        }
+
+        .food-item img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.3s ease; 
+        }
+
+        .food-item img:hover {
+            transform: scale(1.1); 
+        }
+
+        .nutrition {
+            margin-top: 10px;
+        }
+
+        .title {
+            text-align: center;
+            font-family: 'Trebuchet MS', sans-serif;
+            text-shadow: 2px 2px 3px rgba(252, 254, 255, 0.5);
+            color: #333;
+            margin-bottom: 40px; 
+            animation: slide-in 1s ease-out; 
+        }
+
+        @keyframes slide-in {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .title:hover {
+            transform: scale(1.1);
+        }
+
+        .recipe {
+            text-align: left;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .recipe h3 {
+            color: #80435f;
+        }
+
+        .recipe p, .recipe ul {
+            margin: 10px 0;
+        }
+
+        .recipe ul {
+            padding-left: 20px;
+        }
+
+        .recipe li {
+            margin-bottom: 5px;
+        }
+        .header a.active {
+    text-decoration: underline;
+    color: #ffd700;
+}
+</style>
+</head>
+<body>
+    <div class="intro" id="intro">Welcome to Jivan Sanjivani  - Eat Clean, Stay Healthy!</div>
+    
+    <div class="content" id="main-content">
+        <nav>
+            <div class="header">
+                <div style="display: flex; align-items: center;">
+                    <img src="logo.png" alt="Logo">
+                    <span class="website-name">Jivan Sanjivani</span> 
+                </div>
+                <div>
+                    <a href="home.html" class="an">Home</a>
+                    <a href="aushadhi.html" class="an">Aaushadhi</a>
+                    <a href="yoga_exercise.html" class="an">Yoga</a>
+                    <a href="https://www.google.com/search?q=doctors+near+me" class="an">Nearby Doctors</a>
+                </div>
+                <div class="nav-search">
+                    <input list="inputValue" id="inputValue" type="search" placeholder="Search...">
+                    <button onclick="getValue()" style="border-radius: 30px;">Submit</button>
+                    <datalist id="inputValue">
+                        <option value="Yoga">
+                        <option value="Eat Clean">
+                    </datalist>
+                </div>
+            </div>
+        </nav>
+        <h1 class="title">Eat Clean</h1>
+        <div class="food-items-container">
+            <div class="food-item">
+                <div class="image-box">
+                    <img src="https://c.ndtvimg.com/2023-07/s1ap2vmo_cutlet_625x300_30_July_23.jpg" alt="Green Moong Cutlet">
+                </div>
+                <div class="recipe">
+                    <h2>Green Moong Cutlet</h2>
+                    <p>This delicious cutlet is packed with the goodness of green moong (mung beans), onions, poha and spices. Healthy and flavourful, this high-protein moong cutlet can be enjoyed even while dieting. You can choose to pan-fry, air-fry or bake it, according to your preference.</p>
+                    <h4>How to Make Green Moong Cutlet</h4>
+                    <ul>
+                        <li>Soak the green moong dal (mung beans) overnight or for 5-6 hours. Drain the water and coarsely grind the moong to form a thick paste.</li>
+                        <li>Wash the poha once under running water and drain. Keep aside.</li>
+                        <li>Roast the besan on low flame until it turns light brown and emits aroma.</li>
+                        <li>In a large bowl, mix the green moong paste, poha, besan, onion, chillies, ginger and coriander.</li>
+                        <li>Next, add the masala powders mentioned above. Combine all the ingredients well. Taste to adjust salt.</li>
+                        <li>Form circular shapes (like patties or tikkis) of the mixture and pan-fry them on both sides on medium flame. Serve the cutlets hot with green chutney and/or ketchup.</li>
+                    </ul>
+        
+                
+                </div>
+            </div>
+            <div class="food-item">
+        <div class="image-box">
+            <img src="https://wordpress.kpu.ca/foodhistory/files/2023/04/IMG_1375.jpeg" alt="Rajma Chawal">
+        </div>
+        <div class="recipe">
+            <h2>Rajma Chawal</h2>
+            <p>Rajma chawal is a popular North Indian dish that is made with kidney beans and rice. It is a comfort food for many and is often enjoyed with a side of salad, pickle, and papad. Rajma chawal is a wholesome meal that is rich in protein, carbohydrates, and essential nutrients.</p>
+            <h4>How to Make Rajma Chawal</h4>
+            <ul>
+                <li>Soak the rajma (kidney beans) overnight or for 8-10 hours. Drain the water and rinse the rajma.</li>
+                <li>Pressure cook the rajma with water, salt, and turmeric powder until soft and cooked.</li>
+                <li>Heat oil in a pan and add cumin seeds, bay leaf, and chopped onions. Sauté until the onions turn golden brown.</li>
+                <li>Add ginger-garlic paste, chopped tomatoes, and spices. Cook until the tomatoes are soft and the oil separates.</li>
+                <li>Add the cooked rajma along with the water and simmer for 10-15 minutes.</li>
+                <li>Prepare steamed rice and serve the rajma curry with rice, salad, pickle, and papad.</li>
+            </ul>
+            
+            </div>
+            </div>
+            <div class="food-item">
+            <div class="image-box">
+                <img src="https://www.crowdedkitchen.com/wp-content/uploads/2022/10/Pumpkin-Quinoa-Salad-11.jpg" alt="Qunioa Salad">
+            </div>
+            <div class="recipe">
+                <h2>Quinoa Salad</h2>
+                <p>This colorful and nutritious salad is made with quinoa, fresh vegetables, and a zesty dressing. Quinoa is rich in protein, fiber, and essential amino acids.</p>
+                <h4>How to Make Quinoa Salad</h4>
+                <ul>
+                    <li>Rinse the quinoa under cold water.</li>
+                    <li>In a saucepan, bring the quinoa and water to a boil. Reduce heat, cover, and simmer for 15 minutes or until the water is absorbed.</li>
+                    <li>Fluff the quinoa with a fork and let it cool.</li>
+                    <li>In a large bowl, combine the cooled quinoa, cucumber, bell pepper, red onion, cherry tomatoes, and parsley.</li>
+                    <li>In a small bowl, whisk together the olive oil, lemon juice, salt, and pepper.</li>
+                    <li>Pour the dressing over the salad and toss to combine.</li>
+                </ul>
+                </div>
+                </div>
+                
+                <div class="food-item">
+                <div class="image-box">
+                    <img src="https://www.archanaskitchen.com/images/archanaskitchen/salad/Smoked_Tofu_Grilled_Vegetable_Salad.jpg" alt="Grilled Tofu with Vegetables">
+                </div>
+                <div class="recipe">
+                    <h2>Grilled Tofu with Vegetables</h2>
+                    <p>This grilled tofu dish is packed with protein and pairs perfectly with a variety of grilled vegetables. Tofu is a great source of protein, calcium, and iron.</p>
+                    <h4>How to Make Grilled Tofu with Vegetables</h4>
+                    <ul>
+                        <li>Cut the tofu into slices</li>
+                        <li>In a bowl, whisk together the olive oil, soy sauce, balsamic vinegar, salt, and pepper.</li>
+                        <li>Brush the tofu and vegetables with the marinade.</li>
+                        <li>Preheat the grill to medium-high heat.</li>
+                        <li>Grill the tofu and vegetables for 3-4 minutes on each side or until grill marks appear.</li>
+    
+                        <li>Pour the dressing over the salad and toss to combine.</li>
+                    </ul>
+                    
+                    </div>
+                    </div>
+                    <div class="food-item">
+                        <div class="image-box">
+                            <img src="grilled.jpg" alt="Grilled Tofu with Vegetables">
+                        </div>
+                        <div class="recipe">
+                            <h2>High-Protein Scrambled Tofu & Veggies</h2>
+                            <p> High in Protein (Muscle Building & Repair),Rich in Essential Nutrients,Supports Weight Loss & Satiety,Good for Heart Health,Anti-Inflammatory & Immunity-Boosting</p>
+                            <h4>How to Make High-Protein Scrambled Tofu & Veggies</h4>
+                            <ul>
+                                <li>Sauté Veggies: Heat olive oil in a pan and cook onions and bell peppers for 2 minutes.</li>
+                                <li>Add Tofu: Crumble tofu into the pan, add turmeric, garlic powder, salt, and pepper. Stir well.</li>
+                                <li>Cook & Serve: Cook for 5 minutes until slightly crispy, then mix in spinach. Serve warm!
+                                </li>
+                               
+                            </ul>
+                            
+                            </div>
+                            </div>
+                            <div class="food-item">
+                                <div class="image-box">
+                                    <img src="https://www.archanaskitchen.com/images/archanaskitchen/salad/Smoked_Tofu_Grilled_Vegetable_Salad.jpg" alt="Grilled Tofu with Vegetables">
+                                </div>
+                                <div class="recipe">
+                                    <h2>Grilled Salmon with Quinoa & Veggies </h2>
+                                    <p> High in Protein (Muscle Building & Repair), Rich in Omega-3 Fatty Acids (Brain & Heart Health), Aids in Weight Management & Satiety,Supports Gut Health & Digestion,Provides Essential Vitamins & Minerals,Reduces Inflammation & Supports Joint Health,Perfect for a Balanced Diet</p>
+                                    <h4>How to Make Grilled Salmon with Quinoa & Veggies </h4>
+                                    <ul>
+                                        <li>Marinate Salmon: Rub with olive oil, garlic powder, paprika, salt, and pepper.</li>
+                                        <li>Grill or Bake: Cook salmon for 5–7 minutes per side (or bake at 375°F for 12–15 minutes).</li>
+                                        <li>Serve: Place over quinoa with steamed broccoli, drizzle with lemon juice, and enjoy!
+                                        </li>
+                                       
+                                    </ul>
+                                    
+                                    </div>
+                                    </div>
+                                    <div class="food-item">
+                                        <div class="image-box">
+                                            <img src="cottage.jpg" alt="Grilled Tofu with Vegetables">
+                                        </div>
+                                        <div class="recipe">
+                                            <h2> Cottage Cheese & Berry Bowl  </h2>
+                                            <p> High in Protein (Muscle Growth & Recovery), Supports Weight Loss & Satiety,Rich in Antioxidants (Boosts Immunity & Skin Health),Supports Gut Health & Digestion,Strengthens Bones & Teeth , Improves Heart Health</p>
+                                            <h4>Cottage Cheese & Berry Bowl </h4>
+                                            <ul>
+                                                <li>Assemble Bowl: Add cottage cheese to a bowl.</li>
+                                                <li>Top with Berries & Nuts: Mix in berries and sprinkle nuts.</li>
+                                                <li>Drizzle & Serve: Add honey if needed for extra sweetness! Enjoy!
+                                                </li>
+                                               
+                                            </ul>
+                                            
+                                            </div>
+                                            </div>
+                                            <div class="food-item">
+                                                <div class="image-box">
+                                                    <img src="chikpeas.jpg" alt="Grilled Tofu with Vegetables">
+                                                </div>
+                                                <div class="recipe">
+                                                    <h2> Chickpea & Avocado Salad </h2>
+                                                    <p> High in Protein (Muscle Building & Repair),Rich in Healthy Fats (Heart Health & Satiety),Supports Weight Loss & Digestion,Provides Essential Nutrients & Vitamins,Boosts Immunity & Skin Health,Perfect for a Balanced Diet</p>
+                                                    <h4> Chickpea & Avocado Salad </h4>
+                                                    <ul>
+                                                        <li>Prepare Chickpeas: Rinse and drain canned chickpeas.</li>
+                                                        <li>Mix Ingredients: Combine chickpeas, avocado, veggies, and herbs.</li>
+                                                        <li>Season & Serve: Drizzle with olive oil, lemon juice, salt, and pepper. 
+                                                        </li>
+                                                        <li>Drizzle & Serve: Add honey if needed for extra sweetness! Enjoy!</li>
+                                                       
+                                                    </ul>
+                                                    
+                                                    </div>
+                                                    </div>
+                                                    <div class="food-item">
+                                                        <div class="image-box">
+                                                            <img src="black.jpg" alt="Grilled Tofu with Vegetables">
+                                                        </div>
+                                                        <div class="recipe">
+                                                            <h2> Quinoa & Black Bean Bowl </h2>
+                                                            <p> High in Protein (Muscle Building & Repair),Rich in Fiber (Digestion & Satiety),Supports Weight Loss & Heart Health,Provides Essential Nutrients & Vitamins,Boosts Immunity & Skin Health,Perfect for a Balanced Diet</p>
+                                                            <h4>How to make Quinoa & Black Bean Bowl </h4>
+                                                            <ul>
+                                                                <li>Prepare Quinoa: Rinse and cook quinoa according to package instructions.</li>
+                                                                <li>Mix Ingredients: Combine quinoa, black beans, veggies, and herbs.</li>
+                                                                <li>Season & Serve: Drizzle with olive oil, lime juice, salt, and pepper. Enjoy!
+                                                                </li>
+                                                               
+                                                            </ul>
+                                                    </div>
+                                                    </div>
+                                                    <div class="food-item">
+                                                        <div class="image-box">
+                                                            <img src="green.jpg" alt="Grilled Tofu with Vegetables">
+                                                        </div>
+                                                        <div class="recipe">
+                                                            <h2> Green Smoothie Bowl </h2>
+                                                            <p>Packed with antioxidants, vitamins, and protein</p>
+                                                            <h4>How to make Green Smoothie Bowl</h4>
+                                                            <ul>
+                                                                <li>Blend Smoothie: In a blender, combine banana, spinach, frozen berries, almond milk, and almond butter (if using). Blend until smooth.</li>
+                                                                <li>Serve: Pour into a bowl and top with granola and chia seeds for crunch.</li>
+                                                                <li>Garnish: Add extra fruit on top (like sliced banana or berries) for extra nutrition and color.
+
+                                                                </li>
+                                                               
+                                                            </ul>
+                                                    </div>
+                                                    </div>
+                                                    <div class="food-item">
+                                                        <div class="image-box">
+                                                            <img src="lentil.jpg" alt="Grilled Tofu with Vegetables">
+                                                        </div>
+                                                        <div class="recipe">
+                                                            <h2>High-Protein Lentil Soup</h2>
+                                                            <p>Packed with protein, fiber, and vitamins</p>
+                                                            <h4>How to make High-Protein Lentil Soup</h4>
+                                                            <ul>
+                                                                <li>Sauté Vegetables: Heat olive oil in a pot. Add onion, garlic, and sauté until soft.</li>
+                                                                <li>Cook Lentils: Add chopped tomato, carrot, lentils, cumin, turmeric, salt, and pepper. Stir well.</li>
+                                                                <li>Simmer: Pour in vegetable broth and let it cook for 25-30 minutes until lentils are soft.</li>
+                                                                <li>Serve: Blend slightly (optional) for a creamy texture and serve warm.</li>
+                                                            </ul>
+                                                            
+                                                    </div>
+                                                    </div>
+                                                    <div class="food-item">
+                                                        <div class="image-box">
+                                                            <img src="chickpea.jpg" alt="Grilled Tofu with Vegetables">
+                                                        </div>
+                                                        <div class="recipe">
+                                                            <h2>High-Protein Chickpea Salad</h2>
+                                                            <p>Packed with protein and vitamins</p>
+                                                            <h4>How to make High-Protein Chickpea Salad</h4>
+                                                            <ul>
+                                                                <li>Prepare Chickpeas: Rinse and drain canned chickpeas.</li>
+                                                                <li>Mix Ingredients: Combine chickpeas, veggies, and herbs.</li>
+                                                                <li>Season & Serve: Drizzle with olive oil, lemon juice, salt, and pepper. Enjoy!</li>
+                                                            </ul>
+                                                            </div>
+                                                            </div>
+            </div>
+            </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => {
+                document.getElementById("intro").classList.add("hidden");
+                setTimeout(() => {
+                    document.getElementById("intro").style.display = "none";
+                    document.getElementById("main-content").style.display = "block";
+                }, 1000);
+            }, 3000);
+        });
+    </script>
+     <script>
+
+           
+        document.querySelectorAll('.food-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // If clicking the already active item, remove all effects
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    document.querySelectorAll('.food-item').forEach(el => el.classList.remove('blurred'));
+                } else {
+                    // Otherwise, activate the clicked item and blur the rest
+                    document.querySelectorAll('.food-item').forEach(el => el.classList.remove('active', 'blurred'));
+                    item.classList.add('active');
+                    document.querySelectorAll('.food-item').forEach(el => {
+                        if (el !== item) {
+                            el.classList.add('blurred');
+                        }
+                    });
+                }
+            });
+        });
+        
+        document.getElementById("inputValue").addEventListener("input", function () {
+            let query = this.value.toLowerCase();
+            document.querySelectorAll(".food-item").forEach(item => {
+                let title = item.querySelector("h2").innerText.toLowerCase();
+                let description = item.querySelector("p").innerText.toLowerCase();
+                let ingredients = item.querySelector("ul").innerText.toLowerCase();
+        
+                if (title.includes(query) || description.includes(query) || ingredients.includes(query)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+        document.querySelectorAll(".header a").forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add("active");
+            }
+        });
+                </script>
+                <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Load favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Function to update favorites UI
+        function updateFavoritesUI() {
+            document.querySelectorAll(".food-item").forEach(item => {
+                let title = item.querySelector("h2").innerText;
+                let favButton = item.querySelector(".fav-button");
+                if (favorites.includes(title)) {
+                    favButton.innerText = "❤️ Saved";
+                    favButton.classList.add("saved");
+                } else {
+                    favButton.innerText = "♡ Save";
+                    favButton.classList.remove("saved");
+                }
+            });
+        }
+
+        // Add favorite buttons to each food item
+        document.querySelectorAll(".food-item").forEach(item => {
+            let favButton = document.createElement("button");
+            favButton.classList.add("fav-button");
+            favButton.style.marginTop = "10px";
+            favButton.style.padding = "5px 10px";
+            favButton.style.cursor = "pointer";
+            favButton.style.border = "none";
+            favButton.style.borderRadius = "5px";
+            favButton.style.background = "#80435f";
+            favButton.style.color = "white";
+            
+            item.appendChild(favButton);
+            favButton.addEventListener("click", function () {
+                let title = item.querySelector("h2").innerText;
+                if (favorites.includes(title)) {
+                    favorites = favorites.filter(fav => fav !== title);
+                } else {
+                    favorites.push(title);
+                }
+                localStorage.setItem("favorites", JSON.stringify(favorites));
+                updateFavoritesUI();
+            });
+        });
+
+        updateFavoritesUI();
+    });
+</script>
+
+</body>
+</html>

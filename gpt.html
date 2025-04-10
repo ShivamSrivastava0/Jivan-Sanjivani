@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Phone Call</title>
+</head>
+<body>
+    <button onclick="makeCall()">Call</button>
+
+    <script>
+        function makeCall() {
+            const phoneNumber = "1234567890"; // Replace with the phone number
+            window.location.href = `tel:${phoneNumber}`;
+        }
+    </script>
+</body>
+</html>

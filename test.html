@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            overflow-x: hidden;
+        }
+        .hero {
+            height: 100vh;
+            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            background: white;
+            color: black;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .hero button:hover {
+            background: gray;
+            color: white;
+        }
+        .content {
+            padding: 50px;
+            text-align: center;
+            background: white;
+        }
+        .content h2 {
+            font-size: 2.5rem;
+            color: black;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div>
+            <h1>Welcome to Our Story</h1>
+            <button onclick="scrollToContent()">Learn More</button>
+        </div>
+    </section>
+    <section class="content" id="content">
+        <h2>About Our Mission</h2>
+        <p>We believe in making a difference. This year has been an incredible journey of impact and growth.</p>
+    </section>
+    <script>
+        function scrollToContent() {
+            document.getElementById("content").scrollIntoView({ behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>

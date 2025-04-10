@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=M+PLUS+Rounded+1c&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga And Exercises</title>
+
+    <style>
+        /* Add your CSS styles here */
+        * {
+            font-family: 'Poppins', sans-serif;;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .logo {
+            height: inherit;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .name {
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .nav-container a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav-container a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-search input {
+            border-color: #070707;
+            width: 250px;
+            padding: 8px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            text-align: center;
+        }
+
+        .nav-search button {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .nav-search button:hover {
+            background: #8a2be2;
+            transform: scale(1.05);
+        }
+
+        .card-container {
+            background: linear-gradient(to top, #E0F7FA, #FFFFFF);
+            margin-top: 60px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            perspective: 1000px;
+            position: absolute;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+
+            padding: 15px 20px;
+            margin-left: 0px;
+            margin-right: 0px;
+
+        }
+        .nav-search{
+            margin-left: 41%;
+            
+        }
+
+        .card {
+            width: calc(30% - 20px);
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            padding-bottom: 20px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card .yoga-name {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px 0;
+            color: #333;
+        }
+
+        .card .about-yoga {
+            font-size: 16px;
+            padding: 0 20px;
+            color: #555;
+            text-align: justify;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .about-yoga ul {
+            padding-left: 20px;
+        }
+
+
+        .card:hover {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .learn-more:hover {
+            background-color: #81b6ad;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(100% - 40px);
+            }
+        }
+
+        .nav-button {
+            padding: 5px 25px;
+            border: none;
+            border-radius: 20px;
+            background-color: transparent;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .nav-button:hover {
+                background: #8a2be2; /* Soft electric purple */
+                color: white;
+                transition: 0.3s ease-in-out;
+              
+              
+        }
+
+        .logi {
+            height: 80px;
+            width: 80px;
+        }
+
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #004d40 rgb(203, 227, 220);
+            border-radius: 30px;
+        }
+
+        body {
+            scroll-behavior: smooth;
+        }
+
+
+
+
+        .yoga-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #E0F7FA, #FFFFFF);
+            color: rgb(33, 7, 7);
+            border: none;
+            border-radius: 2px;
+            margin-top: 5px;
+   
+            max-width: 100%;
+            margin: auto;
+        }
+        
+        .yoga-section .intro {
+            flex: 1;
+            padding-right: 20px;
+            text-align: left;
+        }
+        
+        .yoga-section h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .yoga-section p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+        .h1{
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #5EC3E5, #005792);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .yoga-section img {
+            flex: 1;
+            max-width: 50%;
+            height: auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .yoga-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .yoga-section .intro {
+                padding-right: 0;
+                text-align: center;
+            }
+        
+            .yoga-section img {
+                max-width: 80%;
+                margin-top: 20px;
+            }
+        }
+        .explore{
+            margin-left:47%;
+            font-size: x-large;
+            color: hsl(220, 54%, 58%);
+
+        }
+        .body{
+            background-color: #ffffff;
+        }
+
+        
+    </style>
+</head>
+
+<body class="body">
+    <div>
+        <header>
+            <div class="nav">
+                <div class="logo">
+                    <img src="logo.png" class="logi" alt="Logo">
+                    <div class="name">Yoga</div>
+                </div>
+                <div class="nav-container">
+                    <a href="home.html"><button class="nav-button">Home</button></a>
+                    <a href="eatclean.html"><button class="nav-button">Eat clean</button></a>
+                    <a href="bmi1.html"><button class="nav-button">BMI</button></a>
+                    <a href="#aushadhi.html"><button class="nav-button">Aushadhi</button></a>
+                    <a href="https://www.google.com/search?client=firefox-b-d&q=hospital+near+me"><button
+                            class="nav-button">Nearby Doctors</button></a>
+                </div>
+
+                <!-- <div class="nav-search">
+                    <input type="text" id="searchInput" placeholder="Search Yoga..." />
+                </div> -->
+
+                <script>
+                    document.getElementById("searchInput").addEventListener("input", function () {
+                        let query = this.value.toLowerCase().trim();
+                        let cards = document.querySelectorAll(".card");
+                
+                        cards.forEach(card => {
+                            let title = card.querySelector(".yoga-name").innerText.toLowerCase();
+                            let description = card.querySelector(".about-yoga p").innerText.toLowerCase();
+                            let listItems = Array.from(card.querySelectorAll("li")).map(li => li.innerText.toLowerCase());
+                
+                            // Check if query matches title, any list item, or description
+                            let matches = title.includes(query) || description.includes(query) || listItems.some(item => item.includes(query));
+                
+                            card.style.display = matches ? "flex" : "none";
+                        });
+                    });
+                </script>
+                
+                
+            </div>
+        </header>
+
+
+
+
+
+        <div class="yoga-section">
+            <div class="intro">
+                <h1 class="h1">welcome to YOGA AND EXERCISES</h1>
+                <p>Discover the art of mindfulness and inner peace with our guided yogas. Whether you're a beginner or an experienced yogi, our platform is here to support your journey towards harmony and well-being.</p>
+            </div>
+            <img src="yogahead.png" alt="Yoga Pose">
+            
+        </div>
+<div class="explore"><h1>EXPLORE</h1></div>
+
+
+
+        <section class="card-container">
+            <div class="card" onclick="location.href='#';">
+                <video width="100%" height="200px" controls id="hoverVideo1" muted loop>
+                    <source src="3327959-hd_1920_1080_24fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="yoga-name">SETU BANDHASANA</div>
+                <div class="about-yoga">
+                    <p>Setu Bandhasana, or Bridge Pose, is a yoga posture where the body forms a bridge-like shape by lifting the hips while lying on the back.</p>
+    
+                    <h4>Targeted Body Organs</h4>
+                    <ul>
+                        <li>Spine</li>
+                        <li>Lungs</li>
+                        <li>Thyroid gland</li>
+                        <li>Digestive organs</li>
+                    </ul>
+                    
+                    <h4>Benefits</h4>
+                    <ul>
+                        <li>Strengthens back, glutes, and hamstrings</li>
+                        <li>Improves spinal flexibility</li>
+                        <li>Stimulates the thyroid gland and regulates hormones</li>
+                        <li>Enhances digestion</li>
+                        <li>Reduces stress and anxiety</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='#';">
+                <video width="100%" height="200px" controls id="hoverVideo2" muted loop>
+                    <source src="4352405-hd_1920_1080_25fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="yoga-name">BALASANA</div>
+                <div class="about-yoga">
+                    <p>Balasana, or Child's Pose, is a restful yoga posture where the body is folded forward with arms extended or alongside the body, promoting relaxation and stretch.</p>
+    
+    <h4>Targeted Body Organs</h4>
+    <ul>
+        <li>Spine</li>
+        <li>Hips</li>
+        <li>Knees</li>
+        <li>Digestive organs</li>
+    </ul>
+    
+    <h4>Benefits</h4>
+    <ul>
+        <li>Relieves stress and fatigue</li>
+        <li>Gently stretches the back, hips, and thighs</li>
+        <li>Encourages relaxation and calmness</li>
+        <li>Aids in digestion</li>
+        <li>Helps relieve lower back pain</li>
+    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <video width="100%" height="200px" controls id="hoverVideo3" muted loop>
+                    <source src="4057407-uhd_4096_2160_25fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="yoga-name">VIRABHADRASANA I</div>
+                <div class="about-yoga">
+                    <p>Virabhadrasana I, or Warrior I Pose, is a powerful standing yoga posture that builds strength, stability, and focus. It involves a deep lunge with arms extended overhead.</p>
+    
+    <h4>Targeted Body Organs</h4>
+    <ul>
+        <li>Legs</li>
+        <li>Hips</li>
+        <li>Chest</li>
+        <li>Shoulders</li>
+        <li>Core muscles</li>
+    </ul>
+    
+    <h4>Benefits</h4>
+    <ul>
+        <li>Strengthens legs, shoulders, and arms</li>
+        <li>Improves balance and stability</li>
+        <li>Opens the chest and improves lung capacity</li>
+        <li>Enhances focus and mental clarity</li>
+        <li>Increases flexibility in hips and thighs</li>
+    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <video width="100%" height="200px" controls id="hoverVideo4" muted loop>
+                    <source src="3761091-uhd_2160_3840_25fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="yoga-name">GOMUKHASANA</div>
+                <div class="about-yoga">
+                    <p>Gomukhasana, or Cow Face Pose, is a seated yoga posture that deeply stretches the shoulders, chest, and hips while promoting relaxation and flexibility.</p>
+    
+                    <h4>Targeted Body Organs</h4>
+                    <ul>
+                        <li>Shoulders</li>
+                        <li>Hips</li>
+                        <li>Spine</li>
+                        <li>Chest</li>
+                    </ul>
+                    
+                    <h4>Benefits</h4>
+                    <ul>
+                        <li>Improves posture and spinal alignment</li>
+                        <li>Enhances flexibility in shoulders and hips</li>
+                        <li>Relieves tension and stress</li>
+                        <li>Encourages deep breathing and lung expansion</li>
+                        <li>Stimulates kidney function</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <video width="100%" height="200px" controls id="hoverVideo5" muted loop>
+                    <source src="4327208-uhd_2160_4096_25fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="yoga-name">SUKHASANA</div>
+                <div class="about-yoga">
+                    <p>Sukhasana, or Easy Pose, is a simple cross-legged seated yoga posture that promotes relaxation, meditation, and proper breathing.</p>
+    
+    <h4>Targeted Body Organs</h4>
+    <ul>
+        <li>Spine</li>
+        <li>Hips</li>
+        <li>Knees</li>
+        <li>Mind</li>
+    </ul>
+    
+    <h4>Benefits</h4>
+    <ul>
+        <li>Encourages mindfulness and relaxation</li>
+        <li>Improves posture and spinal alignment</li>
+        <li>Opens the hips and improves flexibility</li>
+        <li>Reduces stress and anxiety</li>
+        <li>Enhances focus and mental clarity</li>
+    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <video width="100%" height="200px" controls id="hoverVideo6" muted loop>
+                    <source src="3760965-uhd_3840_2160_25fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="yoga-name">URDHVA MUKHA SVANASANA</div>
+                <div class="about-yoga">
+                    <p>Urdhva Mukha Svanasana, or Upward Facing Dog, is a backbend yoga posture that strengthens the spine and opens the chest, improving posture and flexibility.</p>
+    
+    <h4>Targeted Body Organs</h4>
+    <ul>
+        <li>Spine</li>
+        <li>Chest</li>
+        <li>Arms</li>
+        <li>Abdomen</li>
+    </ul>
+    
+    <h4>Benefits</h4>
+    <ul>
+        <li>Strengthens the spine, arms, and wrists</li>
+        <li>Opens the chest and improves breathing</li>
+        <li>Stimulates abdominal organs and digestion</li>
+        <li>Improves posture and flexibility</li>
+        <li>Reduces fatigue and relieves stress</li>
+    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <video width="100%" height="200px" controls id="hoverVideo7" muted loop>
+                    <source src="4112418-hd_1920_1080_30fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="yoga-name">SARVANAASANA</div>
+                <div class="about-yoga">
+                    <p>Sarvangasana, or Shoulder Stand, is an inverted yoga posture that improves circulation, strengthens the shoulders and core, and enhances overall body balance.</p>
+    
+    <h4>Targeted Body Organs</h4>
+    <ul>
+        <li>Thyroid gland</li>
+        <li>Spine</li>
+        <li>Brain</li>
+        <li>Digestive organs</li>
+    </ul>
+    
+    <h4>Benefits</h4>
+    <ul>
+        <li>Boosts blood circulation and oxygen supply</li>
+        <li>Stimulates the thyroid and parathyroid glands</li>
+        <li>Strengthens the shoulders and arms</li>
+        <li>Improves digestion and metabolism</li>
+        <li>Calms the mind and relieves stress</li>
+    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <video width="100%" height="200px" controls id="hoverVideo8" muted loop>
+                    <source src="4535145-hd_1080_1920_25fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="yoga-name">ANJANEYASANA</div>
+                <div class="about-yoga">
+                    <p>Anjaneyasana, or Low Lunge Pose, is a deep lunge yoga posture that stretches the hips, strengthens the legs, and improves balance.</p>
+    
+    <h4>Targeted Body Organs</h4>
+    <ul>
+        <li>Hips</li>
+        <li>Legs</li>
+        <li>Spine</li>
+        <li>Chest</li>
+    </ul>
+    
+    <h4>Benefits</h4>
+    <ul>
+        <li>Opens up the hips and improves flexibility</li>
+        <li>Strengthens the legs and glutes</li>
+        <li>Improves balance and stability</li>
+        <li>Stretches the spine and enhances posture</li>
+        <li>Boosts energy and reduces stress</li>
+    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="location.href='#';">
+                <video width="100%" height="200px" controls id="hoverVideo9" muted loop>
+                    <source src="4608981-hd_1080_1920_25fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="yoga-name">VRIKSHASANA</div>
+                <div class="about-yoga">
+    <p>Vrikshasana, or Tree Pose, is a standing yoga posture that improves balance, strengthens the legs, and enhances concentration.</p>
+    
+    <h4>Targeted Body Organs</h4>
+    <ul>
+        <li>Legs</li>
+        <li>Core</li>
+        <li>Spine</li>
+        <li>Mind</li>
+    </ul>
+    
+    <h4>Benefits</h4>
+    <ul>
+        <li>Enhances balance and coordination</li>
+        <li>Strengthens legs and core muscles</li>
+        <li>Improves posture and spinal alignment</li>
+        <li>Boosts focus and mental clarity</li>
+        <li>Promotes relaxation and mindfulness</li>
+    </ul>
+                </div>
+            </div>
+
+            <!-- Add more cards as needed -->
+        </section>
+
+        <script>
+            document.getElementById("searchInput").addEventListener("input", function () {
+                let query = this.value.toLowerCase().trim();
+                let cards = document.querySelectorAll(".card");
+        
+                cards.forEach(card => {
+                    let title = card.querySelector(".yoga-name").innerText.toLowerCase();
+                    let description = card.querySelector(".about-yoga p").innerText.toLowerCase();
+                    let listItems = Array.from(card.querySelectorAll("li")).map(li => li.innerText.toLowerCase());
+        
+                    // Check if query matches title, any list item, or description
+                    let matches = title.includes(query) || description.includes(query) || listItems.some(item => item.includes(query));
+        
+                    card.style.display = matches ? "flex" : "none";
+                });
+            });
+        </script>
+        
+
+
+        <div class="nav-search">
+            <input type="text" id="searchInput" placeholder="Search Yoga..." />
+            <button onclick="searchYoga()">Search</button>
+            
+        </div>
+
+        <script>
+            document.getElementById("searchInput").addEventListener("input", function () {
+                let query = this.value.toLowerCase().trim();
+                let cards = document.querySelectorAll(".card");
+        
+                cards.forEach(card => {
+                    let title = card.querySelector(".yoga-name").innerText.toLowerCase();
+                    let description = card.querySelector(".about-yoga p").innerText.toLowerCase();
+                    let listItems = Array.from(card.querySelectorAll("li")).map(li => li.innerText.toLowerCase());
+        
+                    // Check if query matches title, any list item, or description
+                    let matches = title.includes(query) || description.includes(query) || listItems.some(item => item.includes(query));
+        
+                    card.style.display = matches ? "flex" : "none";
+                });
+            });
+        </script>
+        
+        
+    </div>
+    
+   
+
+</body>
+</html>

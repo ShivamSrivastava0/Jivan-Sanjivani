@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Chat Page</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 95%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .chat-container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        h2 { color: #4a47a3; }
+        input[type="text"], input[type="file"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+        button {
+            background: #4a47a3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover { background: #5e5bbf; }
+        .message {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .likes, .delete, .edit, .pin {
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+        .likes { color: #4a47a3; }
+        .likes:hover { color: #5e5bbf; }
+        .delete { color: red; }
+        .delete:hover { color: darkred; }
+        .edit { color: #ff9800; }
+        .edit:hover { color: #e68a00; }
+        .pin { color: green; }
+        .pin:hover { color: darkgreen; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Advanced Chat</h2>
+            <input type="text" id="usernameInput" placeholder="Enter your name">
+            <input type="text" id="messageInput" placeholder="Write a message...">
+            <input type="file" id="imageInput" accept="image/*">
+            <button onclick="postMessage()">Post</button>
+            <div id="chat"></div>
+        </div>
+    </div>
+    <script>
+        let messages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+        let likedMessages = JSON.parse(sessionStorage.getItem("likedMessages")) || {};
+        
+        function saveMessages() {
+            localStorage.setItem("chatMessages", JSON.stringify(messages));
+        }
+        
+        function saveLikedMessages() {
+            sessionStorage.setItem("likedMessages", JSON.stringify(likedMessages));
+        }
+        
+        function loadMessages() {
+            let chatDiv = document.getElementById("chat");
+            chatDiv.innerHTML = "";
+            messages.forEach(msg => chatDiv.prepend(createMessageElement(msg)));
+        }
+        
+        function createMessageElement(msg) {
+            let messageDiv = document.createElement("div");
+            messageDiv.classList.add("message");
+            let imageTag = msg.image ? `<img src="${msg.image}" width="100%" style="border-radius: 8px; margin-top: 10px;">` : "";
+            
+            let liked = likedMessages[msg.id] ? "liked" : "";
+            
+            messageDiv.innerHTML = `
+                <p><strong>${msg.username}:</strong> ${msg.text}</p>
+                ${imageTag}
+                <span class="likes ${liked}" onclick="likePost(this, ${msg.id})">Like (${msg.likes})</span>
+                <span class="edit" onclick="editPost(this, ${msg.id})">Edit</span>
+                <span class="pin" onclick="pinPost(this, ${msg.id})">Pin</span>
+                <span class="delete" onclick="deletePost(this, ${msg.id})">Delete</span>
+            `;
+            return messageDiv;
+        }
+        
+        function postMessage() {
+            let username = document.getElementById("usernameInput").value.trim();
+            let messageText = document.getElementById("messageInput").value.trim();
+            let imageFile = document.getElementById("imageInput").files[0];
+            if (messageText === "" && !imageFile) return;
+            
+            let imageURL = imageFile ? URL.createObjectURL(imageFile) : "";
+            let newMessage = { id: Date.now(), username, text: messageText, image: imageURL, likes: 0 };
+            messages.push(newMessage);
+            saveMessages();
+            loadMessages();
+        }
+        
+        function likePost(element, id) {
+            if (likedMessages[id]) return; // Prevent multiple likes
+            
+            let msg = messages.find(m => m.id === id);
+            msg.likes++;
+            likedMessages[id] = true;
+            saveMessages();
+            saveLikedMessages();
+            loadMessages();
+        }
+        
+        function editPost(element, id) {
+            let msg = messages.find(m => m.id === id);
+            let newMessage = prompt("Edit your message:", msg.text);
+            if (newMessage !== null) {
+                msg.text = newMessage;
+                saveMessages();
+                loadMessages();
+            }
+        }
+        
+        function deletePost(element, id) {
+            messages = messages.filter(m => m.id !== id);
+            delete likedMessages[id]; // Remove like record on delete
+            saveMessages();
+            saveLikedMessages();
+            loadMessages();
+        }
+        
+        function pinPost(element, id) {
+            let msg = messages.find(m => m.id === id);
+            messages = messages.filter(m => m.id !== id);
+            messages.unshift(msg);
+            saveMessages();
+            loadMessages();
+        }
+        
+        window.onload = () => {
+            loadMessages();
+            saveLikedMessages();
+        };
+    </script>
+    <script>
+        function startPolling() {
+            setInterval(() => {
+                loadMessages(); // Reload the messages every 10 seconds
+            }, 10000);
+        }
+        
+        window.onload = () => {
+            loadMessages();
+            saveLikedMessages();
+            startPolling(); // Start polling for new messages
+        };
+    </script>
+    
+    
+    
+</body>
+</html>

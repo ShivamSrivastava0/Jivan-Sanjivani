@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jivan Sanjivani</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .health-tips {
+    background-color: #F4F4F4;
+    color: #004d66;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.features-section {
+    background-color: #e0ffe0;
+    color: #004d66;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header{
+    display: flex;
+    height: 80px; 
+    width: 100%;
+    background: linear-gradient(to right, #0f4182, #12c189);
+    color: white;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    border-bottom: 4px solid #ffffff;
+
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+}
+body {
+    padding-top: 90px; 
+}
+
+
+.navi a {
+            font-size: 20px; /* Increased size */
+            font-weight: bold; /* Bold text */
+            font-family: 'Poppins', sans-serif; /* Modern font */
+            text-decoration: none;
+            color: #ffffff; /* Default color */
+            padding: 10px 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+            color:#ffffff;
+        }
+
+        .navi a:hover {
+            transform: translateY(-5px); /* Lifting effect */
+            color: #99bee6;
+            
+        }
+
+        .navi {
+            display: flex;
+            gap: 20px;
+            color:#ffffff; text-decoration: none;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .rr {
+            height: 80px;
+            width: 80px;
+        }
+        .nav-search {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-search input {
+            border-radius: 12px;
+            height: 40px;
+            width: 260px;
+            border: 2px solid black;
+            padding-left: 10px;
+            color: black;
+        }
+
+        .section {
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 50px;
+            position: relative;  }
+
+        .tr { background-color: #f4F4F4; }
+        .features-section { background-color: #F4F4F4; color: #003366; }
+
+        .section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background-color: #009688;
+        }
+
+        .features ul {
+            list-style-type: square;
+            font-size: 1.5rem;
+            text-align: left;
+            padding-left: 50px;
+        }
+
+        .container {
+            background-color: #e3edc9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(96, 95, 95, 0.2);
+            max-width: 600px;
+            width: 100%;
+            margin: 50px auto; 
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+
+        .day {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #e6f2f5;
+            border-radius: 8px;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+
+        .day:hover {
+            transform: translateY(-5px);
+        }
+
+        .day span {
+            margin-bottom: 5px;
+            color: #2e8b57;
+        }
+
+        .counter {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #2e8b57;
+        }
+
+        select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+        }
+
+        li{
+            color: rgb(14, 14, 14);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+   
+
+ .navi a:hover, .navi a:hover span {
+    color: #ffffff !important; /* Ensure blue hover effect */
+}
+
+.nav-search input {
+    border-radius: 12px;
+    height: 40px;
+    width: 260px;
+    border: 2px solid #ffffff; /* Match hover color */
+    padding-left: 10px;
+    color: black;
+    outline: none;
+}
+
+.nav-search button {
+    background-color: #eff3ef; /* Match hover color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-search button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+ 
+
+/* * { color:#ffffff; text-decoration: none;} */
+
+ /* Floating Button Styling */
+ .translate-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Adjusted to left */
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out;
+    z-index: 9999; /* Ensures it stays on top */
+}
+
+.translate-button:hover {
+    background: #0056b3;
+}
+
+/* Google Translate Dropdown Styling */
+.translate-container {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    left: 20px; /* Adjusted to left */
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* Ensures it stays on top */
+}
+    </style>
+</head>
+<body>
+    <button class="translate-button" onclick="toggleTranslate()">🌍 Translate</button>
+
+    <!-- Hidden Translate Dropdown -->
+    <div id="translate-container" class="translate-container">
+        <div id="google_translate_element"></div>
+    </div>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ 
+                pageLanguage: 'en', 
+                includedLanguages: 'hi,en', 
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE 
+            }, 'google_translate_element');
+        }
+
+        function toggleTranslate() {
+            var container = document.getElementById("translate-container");
+            container.style.display = (container.style.display === "block") ? "none" : "block";
+        }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+<nav>
+    
+    <div class="header">
+        <div class="icon">
+            <img src="logo.png" class="rr" alt="Logo">
+            <h1 style=" font-size: 21px; color: rgba(255, 255, 255, 0.956);"><b>Jivan<br>Sanjivani</b></h1>
+        </div>
+        
+
+        <div class="navi">
+            <a href="yoga_exercise.html"><span id="yo">Yoga</span></a>
+            <a href="aushadhi.html"><span id="yo">Aushadhi</span></a>
+            <a href="https://www.google.com/search?sca_esv=1efd172859308584&rlz=1C1ONGR_enIN1119IN1119&tbm=lcl&sxsrf=AHTn8zrEV4eZLkHOKOMaHKmLCiQ8OEjKeA:1739545884031&q=doctors%20near%20me&rflfq=1&num=10&sa=X&sqi=2&ved=2ahUKEwisgc23ucOLAxXJxTgGHa0_MeEQwywoAXoECBcQCQ&biw=1522&bih=778&dpr=1.25&rlfi=hd:;si:&tbs=lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e3!2m4!1e17!4m2!17m1!1e2!2m4!1e2!5m2!2m1!2e9!3sIAE,lf:1,lf_ui:2&rlst=f"><span id="yo">Nearby Doctors</span></button></a>
+            <a href="eatclean.html"><span id="yo">Eat Clean</span></a>
+            <a href="bmi1.html"><span id="yo">BMI</span></a>
+        </div>
+
+     
+        <div class="nav-search">
+            <input id="inputValue" class="inputValue" type="search" list="searchList" placeholder="Search..."/>
+            <button onclick="startVoiceSearch()" class="ui">🎤</button> <!-- Voice search button -->
+            <button onclick="getValue()" class="ui">
+                <span style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color: #0a0a0a;">Search</span>
+            </button>
+            <datalist id="searchList"> 
+                <option value="Yoga">Yoga</option>
+                <option value="Eat Clean">Eat Clean</option>
+                <option value="Aushadhi">Aushadhi</option>
+                <option value="BMI">BMI</option>
+            </datalist>
+        </div>
+        
+        <style>
+            .ui{
+                background-color: black;
+            }
+        </style>
+        <script>
+            function getValue() {
+                let searchValue = document.getElementById("inputValue").value;
+                alert("Search for: " + searchValue);
+            }
+        
+            function startVoiceSearch() {
+                if (!('webkitSpeechRecognition' in window)) {
+                    alert("Your browser doesn't support voice search.");
+                    return;
+                }
+                
+                let recognition = new webkitSpeechRecognition();
+                recognition.lang = "en-US";
+                recognition.start();
+        
+                recognition.onresult = function(event) {
+                    document.getElementById("inputValue").value = event.results[0][0].transcript;
+                };
+        
+                recognition.onerror = function(event) {
+                    alert("Voice recognition error: " + event.error);
+                };
+            }
+        </script>
+        
+    </div>
+</nav>
+
+<div class="ho">
+    <div class="text-container">
+        <h1>
+            <a href="" class="typewrite" data-period="1200" 
+               style="
+                  font-size: 60px;
+                  background: linear-gradient(90deg, 
+                            hsla(191, 75%, 56%, 1) 0%, 
+                            hsla(182, 90%, 64%, 1) 46%, 
+                            hsla(56, 59%, 86%, 1) 47%, 
+                            hsla(189, 93%, 61%, 1) 53%, 
+                            hsla(216, 94%, 52%, 1) 100%);
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  -webkit-text-fill-color: transparent;            text-decoration: none;
+
+              " 
+              data-type='[ "Welcome to JIVAN SANJIVANI!", "Your Health Companion.", "Yoga & Exercises", "Be Ready for any Medical Emergencies." ]'>
+              <span class="wrap"></span>
+            </a>
+        </h1> 
+    </div>
+
+    <div class="image-container">
+        <img src="Adobe Express.png" alt="Medical Image">
+    </div>
+</div>
+
+<style>
+/* Main Section */
+.ho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    width: 100%;
+    min-height: 75vh;
+    background-color: #ebf0fb;
+    height: 400px;
+}
+
+/* Text Container */
+.text-container {
+    flex: 1;
+    max-width: 60%;
+}
+
+/* Image Container */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Image Styling */
+.image-container img {
+    height: 520px;
+    padding-top: 75px;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .ho {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-container {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .image-container {
+        justify-content: center;
+    }
+}
+</style>
+
+
+   
+    
+    
+<style>
+   /* General Styles */
+* {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+      background-color: #ebf0fb;
+  }
+
+
+/* Health Tips Section */
+.health-tips-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    /* font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; */
+}
+
+.health-tips {
+    background: linear-gradient(rgb(255, 255, 255), rgb(151, 150, 222),rgb(139, 131, 182));
+    /* background: linear-gradient(rgb(255, 255, 255), rgb(244, 84, 75),rgb(246, 131, 125)); */
+    color: #333;
+    padding: 25px;
+    width: 800px;
+    height: 550px; /* Fixed height to prevent resizing */
+    border-radius: 15px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Title with Emoji */
+.health-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Tip Content Styling */
+.tip-box {
+    background: rgba(119, 181, 243, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    backdrop-filter: blur(22px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tip-box h3 {
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.tip-box p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.tip-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tip-box ul li {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    margin: 5px 0;
+
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #333;
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button1 {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.button1:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Health Tips Section - Left Side */
+/* .health-tips-container {
+            position: relative;
+            width: 780px;
+            text-align: center;
+            display: flex;
+            justify-content: flex-start;
+            height: fit-content;
+            
+        }
+
+        .health-tips {
+            background: rgba(255, 255, 255, 0.3);
+            color: #333;
+            padding: 20px;
+            height: 500px;
+
+            width: 1900px;
+            border-radius: 12px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            
+        }
+
+        .health-tips h2 {
+            color: #333;
+        }
+
+        .b1 {
+            margin-top: 15px;
+            
+        }
+
+        .button1 {
+            background: #666;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease-in-out;
+          
+        }
+
+        .button1:hover {
+            background: #444;
+        } */
+/* Streak Container Section - Right Side */
+.streak-container {
+    background: linear-gradient(rgb(0, 219, 235), rgb(33, 88, 192));
+    box-shadow: 0 5px 15px rgba(56, 6, 240, 0.2);
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1;
+    max-width: 38%;
+    order: 2;
+}
+
+.streak-container h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.controls label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.controls select {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #5d5c61;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(247, 247, 247, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: #fffcfc;
+    transition: width 0.3s ease-in-out;
+}
+
+.streak-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.day {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+
+.day.active {
+    background: #2c3e50 !important;
+    color: #ffffff !important;
+    transform: scale(1.1);
+}
+
+.streak-counter {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+.po{
+    border-radius: 20px;
+    background-color: lightblue;
+   
+}
+  </style>
+<svg height="10" width="900px">
+    <line x1="0" y1="4" x2="100%" y2="5" style="stroke:rgb(210, 212, 212);stroke-width:5;stroke-solid:5,5;opacity:0.8" />
+</svg>
+
+<div class="main-container">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<div class="health-tips-container">
+    <div class="health-tips" id="tipCard">
+        <h2 class="health-title">🩺 Health Tips</h2>
+        <div class="tip-box">
+            <h3 id="tipTitle">What to Do in Case of Choking (Heimlich Maneuver)</h3>
+            <p id="tipContent" style="color: black;">
+                <strong style="color: black;">For Adults & Children (Above 1 Year):</strong>
+            </p>
+            <ul>
+                <li>Stand behind the choking person and wrap your arms around their waist.</li>
+                <li>Make a fist with one hand and place it just above the navel.</li>
+                <li>Grasp the fist with your other hand and give quick, inward and upward thrusts.</li>
+                <li>Repeat until the object is expelled.</li>
+            </ul>
+        </div>
+        <div class="button-container">
+            <button class="button1" onclick="prevTip()">◀ Previous</button>
+            <button class="button1" onclick="nextTip()">Next ▶</button>
+        </div>
+    </div>
+</div>
+<div class="streak-container">
+    <h2>Streak Tracker</h2>
+    <div class="controls">
+        <label for="monthSelect">Select Month:</label>
+        <select id="monthSelect">
+            <option value="1" style="color: #0a0a0a;">January</option>
+            <option value="2" style="color: #0a0a0a;">February</option>
+            <option value="3" style="color: #0a0a0a;">March</option>
+            <option value="4" style="color: #0a0a0a;">April</option>
+            <option value="5" style="color: #0a0a0a;">May</option>
+            <option value="6" style="color: #0a0a0a;">June</option>
+            <option value="7" style="color: #0a0a0a;">July</option>
+            <option value="8" style="color: #0a0a0a;">August</option>
+            <option value="9" style="color: #0a0a0a;">September</option>
+            <option value="10" style="color: #0a0a0a;">October</option>
+            <option value="11" style="color: #0a0a0a;">November</option>
+            <option value="12" style="color: #0a0a0a;">December</option>
+        </select>
+    </div>
+
+    <div class="progress-bar">
+        <div id="progressFill"></div>
+    </div>
+
+    <div class="streak-grid" id="streakContainer"></div>
+
+    <p id="counter" class="streak-counter">Total Streak: 0</p>
+    <p id="longestStreak" class="streak-counter">Longest Streak: 0</p>
+    <p id="milestoneBadge" class="streak-counter"></p>
+</div>
+</div></div>
+
+<script>
+    const tips = [
+        {
+            title: "What to Do in Case of Choking (Heimlich Maneuver)",
+            content: `<ul>
+                        <li>Stand behind the choking person and wrap your arms around their waist.</li>
+                        <li>Make a fist with one hand and place it just above the navel.</li>
+                        <li>Grasp the fist with your other hand and give quick, inward and upward thrusts.</li>
+                        <li>Repeat until the object is expelled.</li>
+                      </ul>`
+        },
+        {
+            title: "Stay Hydrated",
+            content: `<ul>
+                        <li>Drink at least 8 glasses of water per day.</li>
+                        <li>Carry a reusable water bottle to stay hydrated throughout the day.</li>
+                        <li>Consume water-rich foods like cucumbers and watermelon.</li>
+                      </ul>`
+        },
+        {
+            title: "Importance of Good Sleep",
+            content: `<ul>
+                        <li>Aim for 7-9 hours of sleep each night.</li>
+                        <li>Maintain a consistent sleep schedule.</li>
+                        <li>Avoid screens at least an hour before bedtime.</li>
+                      </ul>`
+        },
+        {
+            title: "Stay Active",
+            content: `<ul>
+                        <li>Engage in at least 30 minutes of physical activity each day.</li>
+                        <li>Take short breaks to stretch and move throughout the day.</li>
+                        <li>Find activities you enjoy to stay motivated.</li>
+                      </ul>`
+        },
+        {
+            title: "Practice Mindfulness",
+            content: `<ul>
+                        <li>Take deep breaths to reduce stress and anxiety.</li>
+                        <li>Practice meditation or yoga to improve mental well-being.</li>
+                        <li>Focus on the present moment to enhance mindfulness.</li>
+                      </ul>`
+        },
+        {
+            title: "Healthy Eating Habits",
+            content: `<ul>
+                        <li>Include a variety of fruits and vegetables in your diet.</li>
+                        <li>Limit processed foods and sugary beverages.</li>
+                        <li>Choose whole grains and lean proteins for balanced meals.</li>
+                      </ul>`
+        },
+        {
+            title: "Maintain Good Posture",
+            content: `<ul>
+                        <li>Sit up straight with your shoulders back and chin up.</li>
+                        <li>Adjust your workspace to promote good posture.</li>
+                        <li>Take breaks to stretch and move to prevent stiffness.</li>
+                      </ul>`
+        },
+        {
+            title: "Practice Sun Safety",
+            content: `<ul>
+                        <li>Apply sunscreen with at least SPF 30 before going outdoors.</li>
+                        <li>Wear protective clothing and sunglasses to shield your skin and eyes.</li>
+                        <li>Avoid direct sunlight during peak hours to prevent sunburn.</li>
+                      </ul>`
+        }
+    ];
+
+    let currentIndex = 0;
+    const tipCard = document.getElementById("tipCard");
+    const tipTitle = document.getElementById("tipTitle");
+    const tipContent = document.getElementById("tipContent");
+
+    function updateTip(index) {
+        tipCard.style.opacity = 0;
+        tipCard.style.transform = "translateX(20px)";
+        setTimeout(() => {
+            tipTitle.textContent = tips[index].title;
+            tipContent.innerHTML = tips[index].content;
+            tipCard.style.opacity = 1;
+            tipCard.style.transform = "translateX(0)";
+        }, 300);
+    }
+
+    function nextTip() {
+        currentIndex = (currentIndex + 1) % tips.length;
+        updateTip(currentIndex);
+    }
+
+    function prevTip() {
+        currentIndex = (currentIndex - 1 + tips.length) % tips.length;
+        updateTip(currentIndex);
+    }
+</script>
+      
+<style>
+    /* Streak Tracker Design */
+    #streakContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+        width: 90%;
+        max-width: 600px;
+    }
+    
+    .day {
+        background-color: #e0e0e0;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .day.active {
+        background-color: #4caf50;
+        color: white;
+        transform: scale(1.1);
+    }
+    
+    .day.milestone {
+        background-color: gold;
+        color: white;
+        border: 2px solid #f1c40f;
+        transform: scale(1.1);
+    }
+    
+    /* Badge Styles */
+    .badge-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: bounce 1s ease-in-out infinite;
+    }
+    
+    /* Milestone Message Styling */
+    #milestoneMessage {
+        background-color: #f1f1f1;
+        padding: 15px;
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 8px;
+        display: none;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    /* Celebration Effects */
+    @keyframes confettiEffect {
+        0% { top: -10px; opacity: 1; }
+        100% { top: 100vh; opacity: 0; }
+    }
+    
+    .confetti {
+        position: absolute;
+        background-color: #f39c12;
+        width: 10px;
+        height: 10px;
+        animation: confettiEffect 1s ease-out infinite;
+    }
+    </style>
+      
+    <script>
+        let streakCount = 0;
+        let selectedDays = [];
+        let longestStreak =  0;
+    
+        const milestones = [5, 10, 20, 30, 50, 100]; // Expanded Milestones
+        let lastMilestoneReached = 0;
+        let milestoneLevel = 0; // Level tracking
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("monthSelect").addEventListener("change", generateDays);
+            generateDays(); // Initialize on page load
+        });
+    
+        function generateDays() {
+            const month = parseInt(document.getElementById("monthSelect").value);
+            const streakContainer = document.getElementById("streakContainer");
+            streakContainer.innerHTML = "";
+            selectedDays = [];
+    
+            const daysInMonth = new Date(2024, month, 0).getDate();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayDiv = document.createElement("div");
+                dayDiv.className = "day";
+                dayDiv.innerHTML = `<span>${day}</span>`;
+    
+                if (localStorage.getItem(`streak-${month}-${day}`) === "true") {
+                    dayDiv.classList.add("active");
+                    selectedDays.push(day);
+                }
+    
+                dayDiv.onclick = function () {
+                    if (this.classList.contains("active")) {
+                        this.classList.remove("active");
+                        selectedDays = selectedDays.filter(d => d !== day);
+                        localStorage.removeItem(`streak-${month}-${day}`);
+                    } else {
+                        this.classList.add("active");
+                        selectedDays.push(day);
+                        localStorage.setItem(`streak-${month}-${day}`, "true");
+                    }
+                    updateCounter(daysInMonth);
+                };
+    
+                streakContainer.appendChild(dayDiv);
+            }
+            updateCounter(daysInMonth);
+        }
+    
+        function updateCounter(daysInMonth) {
+            streakCount = selectedDays.length;
+            document.getElementById("counter").textContent = `Total Streak: ${streakCount}`;
+    
+            if (streakCount > longestStreak) {
+                longestStreak = streakCount;
+                
+            }
+    
+            document.getElementById("longestStreak").textContent = `Longest Streak: ${longestStreak}`;
+            document.getElementById("progressFill").style.width = `${(streakCount / daysInMonth) * 100}%`;
+    
+            // Highlight milestones and level up
+            highlightMilestones();
+            checkMilestone();
+        }
+    
+        function highlightMilestones() {
+            const month = parseInt(document.getElementById("monthSelect").value);
+            const daysInMonth = new Date(2024, month, 0).getDate();
+    
+            // Remove previous milestone highlights
+            const dayDivs = document.querySelectorAll(".day");
+            dayDivs.forEach(div => div.classList.remove("milestone"));
+    
+            // Add milestone badges
+            milestones.forEach(milestone => {
+                if (streakCount >= milestone && streakCount !== lastMilestoneReached) {
+                    const milestoneDay = document.querySelector(`.day:nth-child(${milestone})`);
+                    if (milestoneDay) {
+                        milestoneDay.classList.add("milestone");
+                    }
+                }
+            });
+        }
+    
+        function checkMilestone() {
+            for (let milestone of milestones) {
+                if (streakCount === milestone && streakCount !== lastMilestoneReached) {
+                    showMilestoneMessage(milestone);
+                    lastMilestoneReached = milestone;
+                    levelUp(milestone);
+                    break;
+                }
+            }
+        }
+    
+        function levelUp(milestone) {
+            milestoneLevel = milestones.indexOf(milestone) + 1;
+            const levelMessage = `You've leveled up to Milestone ${milestoneLevel}!`;
+    
+            // Dynamic badge rewards
+            const badgeContainer = document.getElementById("milestoneBadge");
+            badgeContainer.innerHTML = `<img src="https://example.com/badge_${milestoneLevel}.png" alt="Milestone Badge" class="badge-img">`;
+    
+            // Add celebratory confetti or sound
+            triggerCelebration(milestone);
+            showLevelUpMessage(levelMessage);
+        }
+    
+        function showLevelUpMessage(levelMessage) {
+            const messageContainer = document.getElementById("milestoneMessage");
+            messageContainer.innerHTML = `<p>🎉 ${levelMessage} 🎉</p>`;
+            messageContainer.style.display = "block";
+            
+            setTimeout(() => {
+                messageContainer.style.display = "none";
+            }, 5000);
+        }
+    
+        function showMilestoneMessage(milestone) {
+            const messageContainer = document.getElementById("milestoneMessage");
+            messageContainer.innerHTML = `<p>🎉 Congratulations! You've reached a ${milestone}-day streak! Keep up the great work!</p>`;
+            messageContainer.style.display = "block";
+    
+            setTimeout(() => {
+                messageContainer.style.display = "none"; // Hide message after a few seconds
+            }, 5000);
+        }
+    
+        function triggerCelebration(milestone) {
+            // Play motivational sound (you can link to your own sound file)
+            let sound = new Audio('https://www.soundjay.com/button/beep-07.wav');
+            sound.play();
+    
+            // You can also add confetti animation here using a library like `canvas-confetti`
+            // Example: confetti() { (this part would need a confetti library to work) }
+        }
+    </script>  
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("monthSelect").addEventListener("change", generateDays);
+    generateDays(); // Initialize on page load
+
+    // Automatically mark today's date when the page opens
+    markTodayAsCompleted();
+});
+
+function markTodayAsCompleted() {
+    const today = new Date();
+    const month = today.getMonth() + 1; // JS months are 0-indexed, so add 1
+    const day = today.getDate();
+
+    // Ensure the correct month is selected
+    document.getElementById("monthSelect").value = month;
+
+    // Check if today's streak is already marked
+    if (!localStorage.getItem(`streak-${month}-${day}`)) {
+        // Mark the streak if not already done
+        localStorage.setItem(`streak-${month}-${day}`, "true");
+    }
+
+    // Refresh the streak UI
+    generateDays();
+}
+
+</script>
+
+<style>
+.cc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fc;
+    border-radius: 15px;
+    padding: 30px;
+    width: 80%;
+    margin: 50px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.im {
+    width: 45%;
+}
+
+.im img {
+    width: 100%;
+    height: auto;
+}
+
+.te {
+    width: 50%;
+    text-align: center;
+}
+
+.te h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #36c, #2196F3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.te p {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 10px 0 20px;
+}
+
+.book-btn {
+    background-color: #2962ff;
+    color: white;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.book-btn:hover {
+    background-color: #0039cb;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .cc {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .im, .te {
+        width: 100%;
+    }
+}
+</style>
+
+
+  <div class="cc">
+    <div class="im">
+        <img src="Remove background project.png" alt="Doctor Appointment">
+    </div>
+    <div class="te">
+        <h1>Book your Appointment with Doctor</h1>
+        <p>Your Health, Our Priority</p>
+        <button class="book-btn" onclick="bookNow()" >Book Now</button>
+    </div>
+</div>
+
+<script>
+    function bookNow() {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdepxwwOQfYUZHXQSe0_IbnJq4DkCV4lNcczbSyIAJcY9wPvw/viewform?usp=dialog", "_blank");
+    }
+</script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+    .yoga-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+        gap: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 1200px;
+        margin: 50px auto;
+        transition: 0.3s;
+    }
+
+    .yoga-section:hover {
+        transform: scale(1.02);
+    }
+
+    .yoga-section img {
+        width: 45%;
+        max-width: 480px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .yoga-content {
+        flex: 1;
+        text-align: left;
+        color: #333;
+    }
+
+    .yoga-content h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #40a9ff;
+    }
+
+    .yoga-content p {
+        font-size: 1.2rem;
+        color: #555;
+        line-height: 1.6;
+        font-weight: 400;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.3);
+        padding: 12px 18px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+        .yoga-section {
+            flex-direction: column;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .yoga-section img {
+            width: 80%;
+        }
+
+        .yoga-content h1 {
+            font-size: 2rem;
+        }
+
+        .yoga-content p {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<div class="yoga-section">
+    <!-- Left Side: Image -->
+    <img src="shivam3.jpeg" alt="Yoga & Exercise">
+
+    <!-- Right Side: Content -->
+    <div class="yoga-content">
+        <h1 style="color: #40a9ff;">Discover Your Personalized Yoga Asans</h1>
+        <p>Enhance flexibility, relieve stress, and boost your overall well-being with expert-recommended yoga & exercises tailored just for you.</p>
+        <p>Recommends you yoga asans according to your health issues.</p>
+    </div>
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    /* body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #e0f7fa, #fce4ec);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    } */
+
+    .eat-clean-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+        gap: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 1200px;
+        margin: 50px auto;
+        transition: 0.3s;
+    }
+
+    .eat-clean-section:hover {
+        transform: scale(1.02);
+    }
+
+    .eat-clean-section img {
+        width: 45%;
+        max-width: 480px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .eat-clean-content {
+        flex: 1;
+        text-align: left;
+        color: #333;
+    }
+
+    .eat-clean-content h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #28a745;
+    }
+
+    .eat-clean-content p {
+        font-size: 1.2rem;
+        color: #555;
+        line-height: 1.6;
+        font-weight: 400;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.3);
+        padding: 12px 18px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+        .eat-clean-section {
+            flex-direction: column;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .eat-clean-section img {
+            width: 80%;
+        }
+
+        .eat-clean-content h1 {
+            font-size: 2rem;
+        }
+
+        .eat-clean-content p {
+            font-size: 1rem;
+        }
+    }
+</style>
+<div class="eat-clean-section">
+    <!-- Left Side: Image -->
+    <img src="shivam5.png" alt="Eat Clean">
+
+    <!-- Right Side: Content -->
+    <div class="eat-clean-content">
+        <h1 style="        color: #40a9ff;
+        ">Fuel Your Body with Clean Eating</h1>
+        <p>Discover nutrient-rich, healthy food choices that nourish your body, with calorie counts and essential nutrients for a balanced diet.</p>
+    </div>
+</div>
+
+    <section class="health-assistant">
+        <div class="xc">
+          <!-- Left Side Content -->
+          <div class="text-content">
+            <h2>Meet Your Personal Health Assistant</h2>
+            <p>
+              Our AI chatbot is here to provide you with personalized health advice and support.
+              Whether you have questions about nutrition, exercise, or general wellness, our chatbot
+              is available 24/7 to assist you. Start your journey to better health today!
+            </p>
+            <ul class="features">
+              <li>
+                <span class="icon">🤖</span> 24/7 Availability for all your health queries
+              </li>
+              <li>
+                <span class="icon">🤖</span> Personalized advice tailored to your needs
+              </li>
+              <li>
+                <span class="icon">🤖</span> Easy and intuitive interaction
+              </li>
+            </ul>
+          </div>
+      
+          <!-- Right Side Image -->
+          <div class="image-content" >
+            <img src="tenweb_media_rds4vsfbi.webp" alt="Health Assistant AI" style="height: 500px;">
+          </div>
+        </div>
+      </section>
+    <style>/* Container */
+        .health-assistant {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          padding: 80px 5%;
+          background-color: #ebf0fb;
+        }
+        
+        .xc {
+          display: flex;
+          max-width: 1200px;
+          width: 100%;
+          align-items: center;
+          backdrop-filter: blur(10px); /* Blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+          gap: 50px;
+        }
+        
+        /* Left Content */
+        .text-content {
+          flex: 1;
+        }
+        
+        .text-content h2 {
+          font-size: 2.8rem;
+          font-weight: bold;
+          color: #111;
+          margin-bottom: 20px;
+        }
+        
+        .text-content p {
+          font-size: 1.1rem;
+          color: #555;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+        
+        /* Features List */
+        .features {
+          list-style: none;
+          padding: 0;
+        }
+        
+        .features li {
+          display: flex;
+          align-items: center;
+          font-size: 1.1rem;
+          color: #333;
+          margin-bottom: 10px;
+        }
+        
+        .icon {
+          font-size: 1.5rem;
+          color: #007bff;
+          margin-right: 10px;
+        }
+        
+        /* Right Image */
+        .image-content {
+          flex: 1;
+          text-align: right;
+        }
+        
+        .image-content img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 12px;
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+          .xc {
+            flex-direction: column;
+            text-align: center;
+          }
+        
+          .image-content {
+            text-align: center;
+            margin-top: 30px;
+          }
+        
+          .features li {
+            justify-content: center;
+          }
+        }
+        </style>
+    
+    <section class="about-section">
+        <h2>About Jivan Sanjivani</h2>
+        <p class="sub-text">Discover our mission to promote health and wellness.</p>
+        <div class="xz">
+            <div class="card">
+                <div class="icon">💙</div>
+                <h3 class="card-title">Our Mission</h3>
+                <p class="card-text">At Jivan Sanjivani, we strive to empower individuals to lead healthier lives through education and support.</p>
+            </div>
+            <div class="card">
+                <div class="icon">👥</div>
+                <h3 class="card-title">Meet Our Team</h3>
+                <p class="card-text">Our dedicated team of health professionals is here to guide you on your journey.</p>
+            </div>
+            <div class="card">
+                <div class="icon">💡</div>
+                <h3 class="card-title">Why Choose Us?</h3>
+                <p class="card-text">Jivan Sanjivani is your trusted partner in health, offering expert advice and personalized support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <div class="footer-container">
+        <div class="footer-columns">
+            <div class="column">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="aushadhi.html" style="text-decoration: none;"><span style="color: #555;">Aushadhi</span></a></li>
+                    <li><a href="yoga_exercise.html" style="text-decoration: none;"><span style="color: #555;">Yoga</span></a></li>
+                    <li><a href="eatclean.html\" style="text-decoration: none;"><span style="color: #555;">Eat Clean</span></a></li>
+                    <li>Nearby Doctors</li>
+                    <li>Book Appointment with Doctor</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h4>Resources</h4>
+                <ul>
+                    <li>Chikitsak AI</li>
+                    <li>Health Tips</li>
+                    <li>Yoga Streak Calculator</li>
+                    <li>BMI Calculator</li>
+                    
+                </ul>
+            </div>
+            <div class="column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>Twitter</li>
+                    <li>LinkedIn</li>
+                    <li>Github</li>
+                </ul>
+            </div>
+
+<img src="hii.png" alt="" style="height: 200px; width: 250px;">
+
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p style="color: grey;">© 2025 Jivan Sanjivani. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="social-icons">
+                <span>📘</span> <span>📸</span> <span>🐦</span>
+            </div>
+        </div>
+    </div>
+    <style>
+        /* About Section */
+        .about-section {
+            text-align: center;
+            padding: 80px 5%;
+            background-color: #ebf0fb;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #111;
+        }
+
+        .sub-text {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* Cards Section with Blur Effect */
+        .xz {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            width: 100%;
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+            backdrop-filter: blur(10px); /* Blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .xz {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 90%;
+            }
+        }
+
+        /* Footer Section */
+        .footer-container {
+            background-color: #f8f9fa;
+            padding: 50px 5%;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .column {
+            min-width: 200px;
+        }
+
+        .column h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        .column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .column ul li {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        /* Subscription Box */
+        .subscription-box {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .subscription-box input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .subscription-box button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .social-icons span {
+            font-size: 1.5rem;
+            margin: 0 8px;
+            cursor: pointer;
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 900px) {
+            .footer-columns {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .subscription-box {
+                flex-direction: column;
+            }
+
+            .subscription-box button {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+
+<script>
+    function getValue() {
+        var inputValue = document.getElementById('inputValue').value.trim().toLowerCase();
+
+        if (inputValue === "") {
+            alert("Please enter a value");
+            return;
+        }
+
+        // Check if keywords appear anywhere in the sentence
+        if (inputValue.includes("eat clean")) {
+            window.location.href = "eatclean.html?value=" + encodeURIComponent(inputValue);
+        } else if (inputValue.includes("yoga")) {
+            window.location.href = "yoga_exercise.html?value=" + encodeURIComponent(inputValue);
+        } else if (inputValue.includes("nearby doctors") || inputValue.includes("hospital")) {
+            window.location.href = "https://www.google.com/search?q=doctors+near+me";
+        } else if (inputValue.includes("contact") || inputValue.includes("support")) {
+            window.location.href = "https://www.doctronic.ai/ai-online-doctor/";
+        } else if (inputValue.includes("home remedies") ) {
+            window.location.href = "aushadhi.html?value=" + encodeURIComponent(inputValue);
+        } else {
+            alert("No matching result found!");
+        }
+    }
+
+    function startVoiceSearch() {
+        if (!('webkitSpeechRecognition' in window)) {
+            alert("Your browser does not support voice search.");
+            return;
+        }
+
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = "en-US";
+        recognition.start();
+
+        recognition.onresult = function(event) {
+            var voiceInput = event.results[0][0].transcript.toLowerCase();
+            document.getElementById('inputValue').value = voiceInput; // Set input field value
+            getValue(); // Process the search
+        };
+
+        recognition.onerror = function(event) {
+            alert("Error in voice recognition. Try again!");
+        };
+    }
+
+
+    function startVoiceSearch() {
+        if (!('webkitSpeechRecognition' in window)) {
+            alert("Your browser does not support voice search.");
+            return;
+        }
+
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = "en-US";
+        recognition.start();
+
+        recognition.onresult = function(event) {
+            var voiceInput = event.results[0][0].transcript.toLowerCase();
+            document.getElementById('inputValue').value = voiceInput; // Set input field value
+            getValue(); // Process the search
+        };
+
+        recognition.onerror = function(event) {
+            alert("Error in voice recognition. Try again!");
+        };
+    }
+
+
+var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<style>
+   body {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+.chat-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Light Chat Box */
+.light-theme .chat-container {
+    background: rgb(7, 202, 237);
+    box-shadow: 0px 0px 15px rgba(20, 233, 212, 0.3);
+}
+
+/* Dark Chat Box */
+.dark-theme .chat-container {
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 0px 15px #00ffea;
+}
+
+/* Chat Box */
+.chat-box {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light Chat Box */
+.light-theme .chat-box {
+    background: #0dbff0;
+    color: #333;
+    border: 1px solid #141818;
+}
+
+/* Dark Chat Box */
+.dark-theme .chat-box {
+    background: #121212;
+    color: #00ffea;
+    border: 1px solid #00ffea;
+    
+}
+
+/* Input Area */
+.input-area {
+    display: flex;
+    margin-top: 10px;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light Input */
+.light-theme .input-area input {
+    background: rgb(242, 240, 240);
+    color: #333;
+    border: 1px solid #80deea;
+}
+
+/* Dark Input */
+.dark-theme .input-area input {
+    background: #222;
+    color: #00ffea;
+    border: 1px solid #00ffea;
+}
+
+/* Buttons */
+.input-area button,
+.ai-button,
+.theme-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+/* Light Theme Buttons */
+.light-theme .input-area button,
+.light-theme .ai-button,
+.light-theme .theme-button {
+    background: #1b1c1c;
+    color: rgb(253, 249, 249);
+}
+
+.light-theme .input-area button:hover,
+.light-theme .ai-button:hover,
+.light-theme .theme-button:hover {
+    background: #0f0f0f;
+}
+
+/* Dark Theme Buttons */
+.dark-theme .input-area button,
+.dark-theme .ai-button,
+.dark-theme .theme-button {
+    background: #00ffea;
+    color: black;
+}
+
+.dark-theme .input-area button:hover,
+.dark-theme .ai-button:hover,
+.dark-theme .theme-button:hover {
+    background: #00ccbb;
+}
+
+/* Theme Toggle Button */
+.theme-button {
+    margin-top: 20px;
+}
+
+/* Close Button */
+.close-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+</style>
+<button id="aiBotButton" onclick="toggleChat()">🤖 Chat</button>
+
+<div class="chat-container" id="chatContainer">
+    <button class="close-btn" onclick="toggleChat()">X</button>
+    <h2>🤖 Chikitsak AI Bot</h2>
+    
+    <!-- Language Selector -->
+    <select id="language-select" onchange="changeLanguage()" style="color: #000;">
+        <option value="en" style="color: #0a0a0a;">English</option>
+        <option value="hi" style="color: #0a0a0a;">हिन्दी (Hindi)</option>
+    </select>
+
+    <button id="theme-toggle" class="theme-button">Switch Theme</button>
+
+    <div class="chat-box" id="chatBox"></div>
+    <p class="typing" id="typing">Chikitsak AI is thinking...</p>
+
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Type or speak your symptoms..." onkeypress="handleKeyPress(event)">
+        <button onclick="getResponse()">Ask</button>
+        <button class="mic-button" id="micButton" onclick="startListening()">🎤</button>
+</div>
+    </div>
+</div>
+
+
+
+<style>
+ 
+    
+    /* Floating button styling */
+    #aiBotButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #009688;
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        font-size: 16px;
+        border-radius: 100px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    #aiBotButton:hover {
+        background-color: #00796B;
+        transform: scale(1.1);
+    }
+
+    /* Chatbot animation */
+    .chat-container {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;   
+    left: auto;   
+    top: auto;   
+    transform: none;
+    max-width: 400px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.chat-container.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        const body = document.body;
+        const languageSelect = document.getElementById("language-select");
+
+        const savedTheme = localStorage.getItem("theme") || "light-theme";
+        body.classList.add(savedTheme);
+        updateThemeText(savedTheme); 
+
+        themeToggleBtn.addEventListener("click", function () {
+            if (body.classList.contains("light-theme")) {
+                body.classList.replace("light-theme", "dark-theme");
+                localStorage.setItem("theme", "dark-theme");
+                updateThemeText("dark-theme");
+            } else {
+                body.classList.replace("dark-theme", "light-theme");
+                localStorage.setItem("theme", "light-theme");
+                updateThemeText("light-theme");
+            }
+        });
+
+        function updateThemeText(theme) {
+            themeToggleBtn.innerText = theme === "light-theme" ? "Switch to Dark Mode" : "Switch to Light Mode";
+            themeToggleBtn.style.color = theme === "light-theme" ? "white" : "black";
+            themeToggleBtn.style.background = theme === "light-theme" ? "#26c6da" : "#00ffea";
+        }
+
+        // Set default language to English
+        languageSelect.value = "en";
+        changeLanguage();
+    });
+
+    function speak(text) {
+        if (!window.speechSynthesis) {
+            alert("Speech synthesis is not supported in your browser.");
+            return;
+        }
+        window.speechSynthesis.cancel();
+
+        let speech = new SpeechSynthesisUtterance(text);
+
+        // Set language dynamically
+        if (currentLanguage === "hi") {
+            speech.lang = "hi-IN"; // Hindi
+        } else if (currentLanguage === "es") {
+            speech.lang = "es-ES"; // Spanish
+        } else {
+            speech.lang = "en-US"; // English
+        }
+        speech.rate = 1;
+        speech.pitch = 0.8;
+
+        setTimeout(() => {
+            window.speechSynthesis.speak(speech);
+        }, 100);
+    }
+
+    // Language Dictionary
+    const translations = {
+    "en": {
+        "greeting": "Hello! I'm Chikitsak AI Bot. How can I assist you today?",
+        "hello": "Hello! I'm Chikitsak AI Bot. How can I assist you today?",
+        "thinking": "Chikitsak AI is thinking...",
+        "not_found": "I'm not a doctor, but based on your symptoms, please consult a professional. Would you like to consult a doctor? If yes, type 'yes' or 'no'.",
+        "fever": "Fever is a symptom, not a disease. It may be caused by infections, flu, or other conditions. Stay hydrated and rest.",
+        "cough": "A cough may result from infections, allergies, or chronic lung diseases like asthma.",
+        "cold": "The common cold is a viral infection that affects the nose and throat. Rest and hydration are recommended.",
+        "headache": "Headaches can be caused by stress, dehydration, sinus issues, or migraines.",
+        "diabetes": "Diabetes is a chronic condition affecting blood sugar levels. Maintain a healthy diet and monitor glucose regularly.",
+        "hypertension": "High blood pressure can increase the risk of heart disease. Reduce salt intake and manage stress.",
+        "asthma": "Asthma causes breathing difficulties due to airway inflammation. Avoid triggers and use prescribed inhalers.",
+        "flu": "The flu is a viral infection with symptoms like fever, chills, and body aches. Rest and fluids help in recovery.",
+        "allergy": "Allergies occur when the immune system reacts to harmless substances. Avoid allergens and take antihistamines if necessary.",
+        "stomach_pain": "Stomach pain can be due to indigestion, gastritis, or infections. Avoid spicy foods and drink plenty of water.",
+        "vomiting": "Vomiting can be caused by food poisoning, infections, or motion sickness. Stay hydrated and rest.",
+        "diarrhea": "Diarrhea can result from infections or food intolerance. Drink oral rehydration solutions (ORS) to prevent dehydration.",
+        "skin rash": "Skin rashes may result from allergies, infections, or dermatitis. Keep the affected area clean and avoid irritants.",
+        "anemia": "Anemia occurs due to low hemoglobin levels. Include iron-rich foods like spinach and lentils in your diet.",
+        "heart disease": "Heart disease risk can be reduced by maintaining a healthy diet, exercising regularly, and avoiding smoking.",
+        "obesity": "Obesity increases the risk of many diseases. Regular exercise and a balanced diet help in weight management.",
+        "stress": "Stress can impact mental and physical health. Practice meditation, exercise, and relaxation techniques.",
+        "depression": "Depression affects mood and energy levels. Seek professional help if persistent sadness affects daily life.",
+        "insomnia": "Insomnia is difficulty sleeping. Maintain a sleep schedule, avoid caffeine before bed, and try relaxation techniques.",
+        "eye_pain": "Eye pain can be due to strain, dryness, or infections. Avoid excessive screen time and use lubricating eye drops if needed.",
+        "toothache": "Toothaches may be caused by cavities or gum infections. Maintain good oral hygiene and visit a dentist if needed.",
+        "back pain": "Back pain can be caused by poor posture, muscle strain, or disc problems. Stretching and proper ergonomics help.",
+        "joint pain": "Joint pain may result from arthritis, injuries, or inflammation. Exercise and maintain a healthy weight.",
+        "yes": "Consulting a doctor. Please fill out the form correctly.",
+        "no": "Okay. Let me know if you need any other assistance.",
+    },
+    "hi": {
+        "greeting": "नमस्ते! मैं चिकित्सक AI बॉट हूँ। मैं आपकी कैसे सहायता कर सकता हूँ?",
+        "thinking": "चिकित्सक एआई सोच रहा है...",
+        "not_found": "मैं डॉक्टर नहीं हूँ, लेकिन आपके लक्षणों के आधार पर कृपया एक पेशेवर से परामर्श करें। क्या आप डॉक्टर से परामर्श करना चाहेंगे? यदि हाँ, तो 'yes' या 'no' टाइप करें।",
+        "fever": "बुखार एक लक्षण है, कोई बीमारी नहीं। यह संक्रमण, फ्लू या अन्य कारणों से हो सकता है। हाइड्रेटेड रहें और आराम करें।",
+        "cough": "खांसी संक्रमण, एलर्जी, या अस्थमा जैसी फेफड़ों की बीमारियों के कारण हो सकती है।",
+        "cold": "सर्दी एक वायरल संक्रमण है जो नाक और गले को प्रभावित करता है। आराम करें और हाइड्रेटेड रहें।",
+        "headache": "सिरदर्द तनाव, पानी की कमी, साइनस समस्या या माइग्रेन के कारण हो सकता है।",
+        "diabetes": "मधुमेह एक दीर्घकालिक बीमारी है जो रक्त शर्करा को प्रभावित करती है। संतुलित आहार लें और नियमित जांच करें।",
+        "hypertension": "उच्च रक्तचाप हृदय रोग के खतरे को बढ़ा सकता है। नमक का सेवन कम करें और तनाव प्रबंधन करें।",
+        "asthma": "अस्थमा से श्वास लेने में कठिनाई होती है। ट्रिगर्स से बचें और निर्धारित इनहेलर का उपयोग करें।",
+        "flu": "फ्लू एक वायरल संक्रमण है जिसमें बुखार, ठंड लगना और शरीर में दर्द होता है। आराम करें और तरल पदार्थ लें।",
+        "allergy": "एलर्जी तब होती है जब प्रतिरक्षा प्रणाली किसी हानिरहित पदार्थ पर प्रतिक्रिया करती है। एलर्जी कारकों से बचें और जरूरत हो तो दवा लें।",
+        "stomach pain": "पेट दर्द अपच, गैस्ट्राइटिस या संक्रमण के कारण हो सकता है। मसालेदार भोजन से बचें और पानी अधिक पिएं।",
+        "vomiting": "उल्टी फूड पॉइजनिंग, संक्रमण या मोशन सिकनेस के कारण हो सकती है। हाइड्रेटेड रहें और आराम करें।",
+        "diarrhea": "दस्त संक्रमण या खाने की असहिष्णुता के कारण हो सकते हैं। निर्जलीकरण से बचने के लिए ओआरएस पिएं।",
+        "skin_rash": "त्वचा पर चकत्ते एलर्जी, संक्रमण या डर्मेटाइटिस के कारण हो सकते हैं। प्रभावित क्षेत्र को साफ रखें।",
+        "anemia": "एनीमिया कम हीमोग्लोबिन के कारण होता है। अपने आहार में आयरन युक्त खाद्य पदार्थ शामिल करें।",
+        "heart disease": "हृदय रोग के खतरे को संतुलित आहार, नियमित व्यायाम और धूम्रपान से बचकर कम किया जा सकता है।",
+        "obesity": "मोटापा कई बीमारियों का खतरा बढ़ा सकता है। नियमित व्यायाम करें और संतुलित आहार लें।",
+        "stress": "तनाव मानसिक और शारीरिक स्वास्थ्य को प्रभावित कर सकता है। ध्यान, व्यायाम और विश्राम तकनीकों का अभ्यास करें।",
+        "depression": "अवसाद मूड और ऊर्जा स्तर को प्रभावित करता है। यदि लगातार उदासी आपकी दिनचर्या को प्रभावित करती है, तो पेशेवर मदद लें।",
+        "insomnia": "अनिद्रा में सोने में कठिनाई होती है। सोने का समय निर्धारित करें और सोने से पहले कैफीन से बचें।",
+        "eye_pain": "आंखों में दर्द तनाव, सूखापन या संक्रमण के कारण हो सकता है। स्क्रीन समय कम करें और आंखों के लिए ड्रॉप्स लें।",
+        "toothache": "दांत दर्द कैविटी या मसूड़े की बीमारी के कारण हो सकता है। अच्छे मौखिक स्वास्थ्य का ध्यान रखें।",
+        "back_pain": "पीठ दर्द गलत मुद्रा, मांसपेशियों के खिंचाव या रीढ़ की समस्याओं के कारण हो सकता है। योग और सही मुद्रा अपनाएं।",
+        "joint_pain": "जोड़ों में दर्द गठिया, चोट या सूजन के कारण हो सकता है। नियमित व्यायाम करें और संतुलित आहार लें।",
+        "yes": "डॉक्टर से परामर्श किया जा रहा है। कृपया फॉर्म सही से भरें।",
+        "no": "ठीक है। यदि आपको कोई और सहायता चाहिए तो बताएं।",
+    }
+};
+
+    function changeLanguage() {
+        currentLanguage = document.getElementById("language-select").value;
+        showWelcomeMessage();
+    }
+
+    function getResponse() {
+        let userInput = document.getElementById("userInput").value.toLowerCase();
+        let chatBox = document.getElementById("chatBox");
+        let typingIndicator = document.getElementById("typing");
+
+        if (userInput.trim() === "") return;
+
+        chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+        document.getElementById("userInput").value = "";
+        typingIndicator.innerText = translations[currentLanguage]["thinking"];
+        typingIndicator.style.display = "block";
+
+        let responseText = translations[currentLanguage]["not_found"];
+        
+        if (userInput.includes("yes")) {
+            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdepxwwOQfYUZHXQSe0_IbnJq4DkCV4lNcczbSyIAJcY9wPvw/viewform?usp=sharing";
+            return;
+        }
+
+        for (let key in translations[currentLanguage]) {
+            if (userInput.includes(key)) {
+                responseText = translations[currentLanguage][key];
+                break;
+            }
+        }
+
+        setTimeout(() => {
+            typingIndicator.style.display = "none";
+            chatBox.innerHTML += `<p><strong>Doctor AI:</strong> ${responseText}</p>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+            speak(responseText);
+        }, 1500);
+    }
+
+    function startListening() {
+        let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        let micButton = document.getElementById("micButton");
+
+        recognition.lang = currentLanguage === "hi" ? "hi-IN" : currentLanguage === "es" ? "es-ES" : "en-US";
+        recognition.start();
+        micButton.classList.add("listening");
+
+        recognition.onresult = function(event) {
+            let speechToText = event.results[0][0].transcript;
+            document.getElementById("userInput").value = speechToText;
+            getResponse();
+        };
+
+        recognition.onend = function() {
+            micButton.classList.remove("listening");
+        };
+
+        recognition.onerror = function(event) {
+            alert("Speech recognition error: " + event.error);
+            micButton.classList.remove("listening");
+        };
+    }
+
+    function toggleChat() {
+        let chatContainer = document.getElementById("chatContainer");
+        if (chatContainer.classList.contains("show")) {
+            chatContainer.classList.remove("show");
+            setTimeout(() => { chatContainer.style.display = "none"; }, 300);
+        } else {
+            chatContainer.style.display = "block";
+            setTimeout(() => { chatContainer.classList.add("show"); }, 10);
+            showWelcomeMessage();
+        }
+    }
+
+    function showWelcomeMessage() {
+        let chatBox = document.getElementById("chatBox");
+        if (!chatBox.innerHTML.includes(translations[currentLanguage]["greeting"])) {
+            chatBox.innerHTML += `<p><strong>Doctor AI:</strong> ${translations["en"]["greeting"]}</p>`;
+        }
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            getResponse();
+        }
+    }
+    let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
+function saveChatHistory(user, bot) {
+    chatHistory.push({ user, bot });
+    if (chatHistory.length > 5) chatHistory.shift(); // Keep last 5 messages
+    localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+}
+
+</script>
+
+</body> 
+</html> 

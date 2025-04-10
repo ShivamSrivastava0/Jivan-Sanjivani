@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login & Signup</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+
+        .left-container {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to top, #5791e9 0%, #dc73a9 100%);
+position: relative;
+        }
+
+        .right-container {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ebf0fb;
+            overflow: hidden;
+        }
+
+        .container {
+            background-image: linear-gradient(135deg, #b778ff 0%, #e2d1c3 100%);            
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 380px;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 1;
+            animation: fadeInScale 0.6s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            background-color: #f7f7f7;
+            color: #333;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input:focus {
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+            border-color: #007bff;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .toggle-btn {
+            background: none;
+            color: #007bff;
+            cursor: pointer;
+            border: none;
+            margin-top: 15px;
+            font-size: 14px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .toggle-btn:hover {
+            color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        .image-container img {
+            
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Animated Text */
+        .animated-text {
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #007bff;
+            white-space: nowrap;
+            opacity: 0;
+            animation: fadeText 3s infinite ease-in-out;
+        }
+
+        @keyframes fadeText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Message Box */
+        .message-box {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .logo {
+            /* background-color: #070707; */
+            width: 100px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-container">
+        <div class="container" id="formContainer">
+            <img src="logo.png" alt="Logo" class="logo">
+
+            <h2 id="formTitle">Login</h2>
+            <h3>Email OTP Verification</h3>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button id="sendOtpBtn" onclick="sendOTP()">Send OTP</button>
+            <input type="text" id="otp" placeholder="Enter OTP">
+            <input type="password" id="password" placeholder="Enter Password" style="display: none;">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display: none;">
+            <button id="verifyOtpBtn" onclick="verifyOTP()">Verify OTP</button>
+            <p class="message" id="messageBox"></p>
+            <button class="toggle-btn" onclick="toggleForm()">Don't have an account? Sign Up</button>
+        </div>
+    </div>
+    <div class="right-container">
+        <div class="image-container">
+            <img src="shivam1.png" alt="Exercise Image">
+        </div>
+    </div>
+    <script>
+        let isSignup = false;
+
+        function toggleForm() {
+            const formContainer = document.getElementById("formContainer");
+
+            formContainer.classList.add("hidden");
+
+            setTimeout(() => {
+                isSignup = !isSignup;
+                document.getElementById("formTitle").innerText = isSignup ? "Sign Up" : "Login";
+                document.getElementById("password").style.display = isSignup ? "block" : "none";
+                document.getElementById("confirmPassword").style.display = isSignup ? "block" : "none";
+                document.getElementById("verifyOtpBtn").innerText = isSignup ? "Sign Up" : "Verify OTP";
+                document.querySelector(".toggle-btn").innerText = isSignup ? "Already have an account? Login" : "Don't have an account? Sign Up";
+                
+                formContainer.classList.remove("hidden");
+                formContainer.style.animation = "fadeInScale 0.6s ease-in-out";
+            }, 500);
+        }
+
+        function displayMessage(message, type) {
+            const messageBox = document.getElementById("messageBox");
+            messageBox.innerText = message;
+            messageBox.className = `message ${type}`;
+            messageBox.style.display = "block";
+            setTimeout(() => messageBox.style.display = "none", 3000);
+        }
+
+        function sendOTP(event) {
+    event.preventDefault(); // Prevents form from resetting
+    const email = document.getElementById("email").value;
+    if (!email) return displayMessage("Please enter your email.", "error");
+
+    fetch("http://127.0.0.1:5000/send_otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.message) {
+            displayMessage("OTP sent!", "success");
+            // Ensure email field value remains unchanged
+        } else {
+            displayMessage(data.error, "error");
+        }
+    })
+    .catch(() => displayMessage("Failed to send OTP.", "error"));
+}
+
+
+// Attach event listener to prevent form submission
+document.getElementById("sendOtpBtn").addEventListener("click", sendOTP);
+
+        function verifyOTP() {
+            const email = document.getElementById("email").value;
+            const otp = document.getElementById("otp").value;
+            if (!otp) return displayMessage("Please enter the OTP.", "error");
+
+            const payload = isSignup ? { email, otp, password: document.getElementById("password").value } : { email, otp };
+            fetch(isSignup ? "http://127.0.0.1:5000/signup" : "http://127.0.0.1:5000/verify_otp", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.message) {
+                    displayMessage(isSignup ? "Signup successful!" : "Login successful!", "success");
+                    setTimeout(() => window.location.href = "home.html", 2000);
+                } else {
+                    displayMessage(data.error, "error");
+                }
+            })
+            .catch(() => displayMessage("Verification failed.", "error"));
+        }
+    </script>
+</body>
+</html>

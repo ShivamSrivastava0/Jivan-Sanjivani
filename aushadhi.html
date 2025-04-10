@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Remedies Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #f4f4f4, #ffffff);
+            overflow-x: hidden;
+            padding-top: 100px;
+        }
+        .header {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at 10% 20%, rgba(3, 31, 79, 0.982) 0%, rgb(236, 195, 192) 90%);
+
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            z-index: 1000; 
+            border-radius: 20px;
+        }
+        .header img {
+            height: 60px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        .header img:hover {
+            transform: rotate(360deg); 
+        }
+        .header .website-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .header a:hover {
+            text-decoration: underline;
+            color: #ffd700;
+        }
+        .nav-search {
+            display: flex;
+            align-items: center;
+            border: ridge 2px #ffffff;
+            border-radius: 9px;
+            background: #fff;
+            padding: 5px;
+        }
+        .search {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 15px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+            width: 200px;
+
+        }
+        .search:focus {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .nav-search button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin-left: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            
+        }
+       
+
+        body {
+            background-color:#ebf0fb;
+            text-align: center;
+            padding: 20px;
+            
+
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 100px;
+         
+        }
+
+        .card {
+            background-color: rgb(88, 204, 212);
+            
+            background: radial-gradient(circle at 10% 20%, rgba(74, 135, 239, 0.77) 0%, rgb(249, 219, 217) 90%);
+            
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+            height: 400px;
+            width: 380px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #007BFF;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #2a2d31;
+            margin-bottom: 8px;
+        }
+
+        .card .tip {
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .footer {
+            background: radial-gradient(circle at 10% 20%, rgba(22, 71, 156, 0.848) 0%, rgb(249, 219, 217) 90%);
+
+            color: white;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            height: 380px;
+            border-radius: 25px;
+        }
+        
+        .footer-section {
+            margin: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section p, .footer-section a {
+            margin: 5px 0;
+        }
+        
+        .footer-link {
+            color: #ffd700;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .footer-section1 img{
+            border-radius: 27px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="header">
+            <div style="display: flex; align-items: center;">
+                <img src="logo.png" alt="Logo">
+                <span class="website-name">Jivan Sanjivani</span> 
+            </div>
+            <div>
+                <a href="home.html">Home</a>
+                <a href="eatclean.html">Eat Clean</a>
+                <a href="yoga_exercise.html">Yoga</a>
+                <a href="https://www.google.com/search?client=firefox-b-d&sca_esv=d15c5ee1369c1e0a&tbm=lcl&q=hospital+near+me">Nearby Doctors</a>
+            </div>
+            <div class="nav-search">
+                <input list="inputValue" id="inputValue" class="search" type="search" placeholder="Search...">
+                <button onclick="getValue()">🔍</button>
+                <datalist id="inputValue">
+                    <option value="Yoga">
+                    <option value="Eat Clean">
+                </datalist>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <div class="grid-container" id="healthGrid">
+        <!-- Cards will be injected here dynamically -->
+    </div>
+    <div class="footer-container">
+        <div class="footer-columns">
+            <div class="column">
+                <h4>Explore</h4>
+                <ul>
+                    <li>Aushadhi</li>
+                    <li>Yoga</li>
+                    <li>Eat Clean</li>
+                    <li>Nearby Doctors</li>
+                    <li>Book Appointment with Doctor</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h4>Resources</h4>
+                <ul>
+                    <li>Chikitsak AI</li>
+                    <li>Health Tips</li>
+                    <li>Yoga Streak Calculator</li>
+                    <li>BMI Calculator</li>
+                    
+                </ul>
+            </div>
+            <div class="column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>Twitter</li>
+                    <li>LinkedIn</li>
+                    <li>Github</li>
+                </ul>
+            </div>
+
+<img src="hii.png" alt="" style="height: 200px; width: 250px;">
+
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p style="color: grey;">© 2025 Jivan Sanjivani. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="social-icons">
+                <span>📘</span> <span>📸</span> <span>🐦</span>
+            </div>
+        </div>
+    </div>
+<style>/* Footer Section */
+    .footer-container {
+        background-color: #f8f9fa;
+        padding: 50px 5%;
+    }
+
+    .footer-columns {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .column {
+        min-width: 200px;
+    }
+
+    .column h4 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #111;
+        margin-bottom: 10px;
+    }
+
+    .column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .column ul li {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 5px;
+    }
+
+    /* Subscription Box */
+    .subscription-box {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .subscription-box input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    .subscription-box button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        margin-left: 5px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .footer-links a {
+        margin: 0 10px;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .social-icons span {
+        font-size: 1.5rem;
+        margin: 0 8px;
+        cursor: pointer;
+    }
+
+    /* Responsive Footer */
+    @media (max-width: 900px) {
+        .footer-columns {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .subscription-box {
+            flex-direction: column;
+        }
+
+        .subscription-box button {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+    <script>
+        const healthData = [
+            {
+                name: "Knee Pain",
+                image: "https://www.ultrasound-guided-injections.co.uk/wp-content/uploads/2024/01/image4.png",
+                remedies: "Apply warm compress, massage with coconut oil, drink turmeric milk.",
+                precautions: "Avoid excessive strain, maintain a healthy weight, wear proper footwear.",
+                tip: "Include more Omega-3-rich foods like walnuts and flaxseeds."
+            },
+            {
+                name: "Back Pain",
+                image: "https://media.gettyimages.com/id/143174625/photo/backache.jpg?s=612x612&w=gi&k=20&c=TCtNYQqz4Spc0ob2KEb1qeWpKz6Ld61CXMmiRlrmCaY=",
+                remedies: "Apply hot or cold packs, stretch gently, massage with eucalyptus oil.",
+                precautions: "Maintain good posture, avoid prolonged sitting, exercise regularly.",
+                tip: "Use a firm mattress for better spinal support."
+            },
+            {
+                name: "Migraine",
+                image: "https://onemg.gumlet.io/a_ignore,w_360,h_208,c_fit,q_auto,f_auto/truloomb7510sgga0ceo.jpg",
+                remedies: "Drink ginger tea, apply peppermint oil on temples, practice deep breathing.",
+                precautions: "Avoid bright lights, loud noises, processed foods.",
+                tip: "Stay hydrated—dehydration triggers migraines!"
+            },
+            {
+                name: "Diabetes",
+                image: "https://cells4life.com/wp-content/uploads/2024/06/diabetes_-scaled.jpg",
+                remedies: "Drink bitter gourd juice, eat fenugreek seeds, use cinnamon in diet.",
+                precautions: "Avoid refined carbs, exercise daily, monitor blood sugar levels.",
+                tip: "Eat more fiber-rich foods like oats and beans."
+            },
+            {
+                name: "High Blood Pressure",
+                image: "	https://static.toiimg.com/photo/87016075.cms",
+                remedies: "Consume garlic, drink hibiscus tea, practice meditation.",
+                precautions: "Reduce salt intake, avoid stress, exercise regularly.",
+                tip: "Switch to potassium-rich foods like bananas and spinach."
+            },
+            {
+                name: "Cold & Flu",
+                image: "https://img.freepik.com/free-vector/person-with-cold-concept_23-2148480941.jpg",
+                remedies: "Drink honey-ginger tea, inhale steam, take turmeric milk.",
+                precautions: "Avoid cold drinks, maintain hygiene, get enough sleep.",
+                tip: "Add more Vitamin C-rich foods like oranges and amla."
+            },
+            {
+                name: "Acidity & Heartburn",
+                image: "https://d2jx2rerrg6sh3.cloudfront.net/image-handler/picture/2021/1/shutterstock_762523357.jpg",
+                remedies: "Drink cold milk, chew basil leaves, consume fennel seeds after meals.",
+                precautions: "Avoid spicy and oily foods, eat smaller meals.",
+                tip: "Start your day with warm water and lemon."
+            },
+            {
+                name: "Obesity & Weight Gain",
+                image: "https://rockymountaindiabetes.com/wp-content/uploads/2022/03/weight-gain-1.jpg",
+                remedies: "Drink green tea, consume apple cider vinegar, eat protein and fiber.",
+                precautions: "Avoid junk food, stay active, control portion sizes.",
+                tip: "Walk for at least 30 minutes daily."
+            },
+            {
+                name: "Heart Disease",
+                image: "https://bpincontrol.in/wp-content/uploads/2023/08/Heart-Disease.jpg",
+                remedies: "Drink pomegranate juice, eat garlic, include nuts like almonds.",
+                precautions: "Avoid trans fats, exercise daily, monitor cholesterol levels.",
+                tip: "Switch to heart-healthy fats like olive oil."
+            },
+            {
+                name: "Cancer Prevention",
+                image: "	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0n80cwVNLebYYPNyXNyYNirzKQhsQilGdeA&s",
+                remedies: "Eat anti-cancer foods like turmeric, broccoli, green tea.",
+                precautions: "Avoid smoking, reduce red meat consumption.",
+                tip: "Include more antioxidants like berries and nuts."
+            },
+            {
+                name: "Dengue Fever",
+                image: "https://www.healthathomes.com/wp-content/uploads/2023/07/dengue.png",
+                remedies: "Stay hydrated, take pain relievers (avoid aspirin), and rest. ",
+                precautions: "Use mosquito repellents, wear full-sleeved clothes, and avoid stagnant water.",
+                tip: "Include more antioxidants like berries and nuts."
+            },
+            {
+                name: "Typhoid",
+                image: "https://www.1mg.com/articles/wp-content/uploads/2023/07/Typhoid.jpg ",
+                remedies: "Take antibiotics as prescribed, stay hydrated, and eat soft, easily digestible food.",
+                precautions: "Drink clean water, maintain good hygiene, and avoid street food.",
+                tip: "Include more antioxidants like berries and nuts."
+            },
+        ];
+
+        const healthGrid = document.getElementById("healthGrid");
+
+        healthData.forEach(item => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div class="card-content">
+                    <h2>${item.name}</h2>
+                    <p><strong>Home Remedies:</strong> ${item.remedies}</p>
+                    <p><strong>Precautions:</strong> ${item.precautions}</p>
+                    <p class="tip">💡 <strong>Tip:</strong> ${item.tip}</p>
+                </div>
+            `;
+
+            healthGrid.appendChild(card);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jivan Sanjivani</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .health-tips {
+    background-color: #e0ffe0;
+    color: #004d66;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.tr {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.features-section {
+    background-color: #e0ffe0;
+    color: #004d66;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    display: flex;
+    height: 100px; 
+    width: 100%;
+    color: white;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    border-bottom: 4px solid #ffffff;
+    background-image: linear-gradient(to top, #30cfd0 0%, #eff8fa 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+        backdrop-filter: blur(100px); /* Adjust the blur intensity */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+body {
+    padding-top: 90px; 
+}
+
+
+.navi a {
+            font-size: 22px; /* Increased size */
+            font-weight: bold; /* Bold text */
+            font-family: 'Poppins', sans-serif; /* Modern font */
+            text-decoration: none;
+            color: #ffffff; /* Default color */
+            padding: 10px 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navi a:hover {
+            transform: translateY(-5px); /* Lifting effect */
+            color: #007bff;
+            
+        }
+
+        .navi {
+            display: flex;
+            gap: 20px;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .rr {
+            height: 80px;
+            width: 80px;
+        }
+        .nav-search {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-search input {
+            border-radius: 12px;
+            height: 40px;
+            width: 260px;
+            border: 2px solid black;
+            padding-left: 10px;
+            color: black;
+        }
+
+        /* .ho {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            /* background: linear-gradient(90deg, #004d40 0%, #00bfa5 63%, #80cbc4 100%); */
+            /* text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding: 20px;
+            background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190617/ourmid/pngtree-taobao-cartoon-vector-medical-hospital-ambulance-needle-love-poster-image_128832.jpg");
+            background-size: 150px 100px;
+            background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%; */
+
+            /* background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+     /* } */
+     .ho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 20px;
+    
+    background-image: url("bg1.jpeg");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* .ho::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(129, 129, 129, 0.3); /* Adds a semi-transparent dark overlay */
+/* } */
+
+
+        .section {
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 50px;
+            position: relative;  }
+
+        .health-tips { background-color: #c5dac5; color: #003366; }
+        .tr { background-color: #f0f0f0; }
+        .features-section { background-color: #c5dac5; color: #003366; }
+
+        .section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background-color: #009688;
+        }
+
+        .features ul {
+            list-style-type: square;
+            font-size: 1.5rem;
+            text-align: left;
+            padding-left: 50px;
+        }
+
+        .container {
+            background-color: #e3edc9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(96, 95, 95, 0.2);
+            max-width: 600px;
+            width: 100%;
+            margin: 50px auto; 
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .streak {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .day {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #e6f2f5;
+            border-radius: 8px;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+
+        .day:hover {
+            transform: translateY(-5px);
+        }
+
+        .day span {
+            margin-bottom: 5px;
+            color: #2e8b57;
+        }
+
+        .counter {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #2e8b57;
+        }
+
+        select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+        }
+
+        li{
+            color: rgb(14, 14, 14);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #right{    
+ text-align: right;  
+ }
+/* Fix Hover Color for Yoga & Other Links */
+.navi a:hover, .navi a:hover span {
+    color: #1c81ed !important; /* Ensure blue hover effect */
+}
+
+/* Style the Search Input */
+.nav-search input {
+    border-radius: 12px;
+    height: 40px;
+    width: 260px;
+    border: 2px solid #ffffff; /* Match hover color */
+    padding-left: 10px;
+    color: black;
+    outline: none;
+}
+
+/* Style the Submit Button */
+.nav-search button {
+    background-color: #28a5bb; /* Match hover color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-search button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+ 
+
+* { color:#fff; text-decoration: none;}
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="header">
+        <div class="icon">
+            <img src="logo.png" class="rr" alt="Logo">
+            <h1 style="
+"><b>Jivan<br>Sanjivani</b></h1>
+        </div>
+        
+
+        <div class="navi">
+            <a href="yoga_exercise.html"><span id="yo">Yoga</span></a>
+            <a href="aushadhi.html"><span id="yo">Aushadhi</span></a>
+            <a href="https://www.google.com/search?client=firefox-b-d&sca_esv=d15c5ee1369c1e0a&tbm=lcl&q=hospital+near+me&rflfq=1&num=10&sa=X&ved=2ahUKEwj1kPT-t7KLAxWlxjgGHZPvJOsQjGp6BAgiEAE&biw=1248&bih=594&dpr=1.54#rlfi=hd:;si:;mv:[[31.373592499999997,75.7892097],[31.2050284,75.5424278]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!2m4!1e17!4m2!17m1!1e2!3sIAE,lf:1,lf_ui:2"><span id="yo">Nearby Doctors</span></button></a>
+            <a href="eatclean.html"><span id="yo">Eat Clean</span></a>
+        </div>
+
+        <div class="nav-search">
+            <input list="inputValue" id="inputValue" type="search" placeholder="Search...">
+            <button onclick="startVoiceSearch()">🎤</button> <!-- Voice search button -->
+            <button onclick="getValue()">Search</button>
+            <datalist id="inputValue">
+                <option value="Yoga">
+                <option value="Eat Clean">
+            </datalist>
+        </div>
+        
+        <script>
+            function getValue() {
+                let searchValue = document.getElementById("inputValue").value;
+                alert("Search for: " + searchValue);
+            }
+        
+            function startVoiceSearch() {
+                if (!('webkitSpeechRecognition' in window)) {
+                    alert("Your browser doesn't support voice search.");
+                    return;
+                }
+                
+                let recognition = new webkitSpeechRecognition();
+                recognition.lang = "en-US";
+                recognition.start();
+        
+                recognition.onresult = function(event) {
+                    document.getElementById("inputValue").value = event.results[0][0].transcript;
+                };
+        
+                recognition.onerror = function(event) {
+                    alert("Voice recognition error: " + event.error);
+                };
+            }
+        </script>
+        
+    </div>
+</nav>
+
+<div class="ho">
+<h1>
+        <a href="" class="typewrite" data-period="1200" style="
+            background: linear-gradient(90deg, 
+                hsla(191, 75%, 56%, 1) 0%, 
+                hsla(182, 90%, 64%, 1) 46%, 
+                hsla(56, 59%, 86%, 1) 47%, 
+                hsla(189, 93%, 61%, 1) 53%, 
+                hsla(216, 94%, 52%, 1) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+ 
+        
+        " data-type='[ "Welcome, to JIVAN SANJIVANI.", "Your Health Companion.", "Yoga & Exercises", "Be Ready for any Medical Emergiencies." ]'>
+          <span class="wrap"></span>
+        </a>
+      </h1> <br>
+     <div id="right"> <img src="gh1.png" alt="" style=""></div>
+          
+    </div>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jivan Sanjivani</title>
+        <link rel="stylesheet" href="home.css">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <style>
+            body {
+                background-color: #f4f4f4;
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            .health-tips {
+                background-color: #e0ffe0;
+                color: #004d66;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                overflow: hidden;
+                position: relative;
+            }
+            .health-tips ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+            .health-tips li {
+                min-width: 100%;
+                box-sizing: border-box;
+                padding: 20px;
+                background: #5d92af;
+                border-radius: 8px;
+                margin-right: 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .health-tips h3 {
+                margin: 0 0 10px;
+                font-size: 1.4rem;
+                color: #004d66;
+            }
+            .health-tips h5 {
+                margin: 0 0 10px;
+                font-size: 1.2rem;
+                color: #004d66;
+            }
+            .health-tips .controls {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                transform: translateY(-50%);
+            }
+            .health-tips .controls button {
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+            
+        </style>
+    </head>
+    <body>
+    
+    <div class="section health-tips" style="background: linear-gradient(135deg, #e0ffe0, #b2dfdb); padding: 30px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <h2 style="text-align: center; font-size: 2.5rem; text-transform: uppercase; font-weight: bold; color: #004d66; margin-bottom: 20px; border-bottom: 3px solid #009688; display: inline-block; padding-bottom: 5px;">Health Tips</h2>
+        
+        <div class="carousel">
+            <ul id="healthTipsList">
+                <li>
+                    <h3>What to Do in Case of Choking (Heimlich Maneuver)</h3>
+                    <h5>For Adults & Children (Above 1 Year):</h5>
+                    <ul>
+                        <li>Stand behind the choking person and wrap your arms around their waist.</li>
+                        <li>Make a fist with one hand and place it just above the navel.</li>
+                        <li>Grasp the fist with your other hand and give quick, inward and upward thrusts.</li>
+                        <li>Repeat until the object is expelled.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Stay Hydrated</h3>
+                    <p>Drink at least 8 glasses of water a day to keep your body hydrated and functioning properly.</p>
+                </li>
+                <li>
+                    <h3>Exercise Regularly</h3>
+                    <p>Engage in at least 30 minutes of physical activity every day to maintain a healthy body and mind.</p>
+                </li>
+                <!-- Add more health tips as needed -->
+            </ul>
+            <div class="controls">
+                <button id="prevBtn">❮</button>
+                <button id="nextBtn">❯</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentIndex = 0;
+        const healthTipsList = document.getElementById('healthTipsList');
+        const healthTipsItems = healthTipsList.children;
+        const totalItems = healthTipsItems.length;
+    
+        function showTip(index) {
+            const offset = -index * 100;
+            healthTipsList.style.transform = `translateX(${offset}%)`;
+        }
+    
+        function nextTip() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            showTip(currentIndex);
+        }
+    
+        function prevTip() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            showTip(currentIndex);
+        }
+    
+        document.getElementById('nextBtn').addEventListener('click', nextTip);
+        document.getElementById('prevBtn').addEventListener('click', prevTip);
+    
+        setInterval(nextTip, 5000); // Automatically scroll every 5 seconds
+    </script>
+  
+    
+    <div class="streak-container">
+        <h2>Monthly Streak Tracker</h2>
+        <div class="controls">
+            <label for="monthSelect">Select Month:</label>
+            <select id="monthSelect">
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3" style="color: #0a0a0a;">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+        
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+    
+        <div class="streak-grid" id="streakContainer"></div>
+        
+        <div class="streak-counter">
+            <span id="counter">Total Streak: 0</span>
+            <span id="daysCounter"></span>
+        </div>
+    </div>
+    
+    <style>
+        * {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        .streak-container {
+            background: linear-gradient(135deg, #f7cac9, #92a8d1);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+    
+        h2 {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+    
+        .controls {
+            margin-bottom: 20px;
+        }
+    
+        .controls label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    
+        .controls select {
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: none;
+            background: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #5d5c61;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+    
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+    
+        #progressFill {
+            height: 100%;
+            width: 0%;
+            background: #ffffff;
+            transition: width 0.3s ease-in-out;
+        }
+    
+        .streak-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            padding: 10px;
+        }
+    
+        .day {
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .day:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    
+        .day.active {
+            background: #2c3e50 !important;
+            color: #ffffff !important;
+            transform: scale(1.1);
+        }
+    
+        .streak-counter {
+            margin-top: 20px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    
+        .streak-counter span {
+            display: block;
+            margin-top: 5px;
+        }
+        
+    </style>
+    
+    <script>
+        let streakCount = 0;
+        let selectedDays = [];
+    
+        function generateDays() {
+            const monthSelect = document.getElementById("monthSelect");
+            const month = monthSelect.value;
+            const streakContainer = document.getElementById("streakContainer");
+            const counter = document.getElementById("counter");
+            const daysCounter = document.getElementById("daysCounter");
+            const progressFill = document.getElementById("progressFill");
+    
+            const colors = [
+                "#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", 
+                "#a0c4ff", "#bdb2ff", "#ffc6ff", "#ff85a1", "#f2a65a"
+            ];
+    
+            streakContainer.innerHTML = "";
+            streakCount = 0;
+            selectedDays = [];
+    
+            const daysInMonth = new Date(2024, month, 0).getDate();
+    
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayDiv = document.createElement("div");
+                dayDiv.className = "day";
+                dayDiv.innerHTML = `<span>${day}</span>`;
+                dayDiv.style.backgroundColor = colors[day % colors.length];
+    
+                if (localStorage.getItem(`streak-${month}-${day}`) === "true") {
+                    dayDiv.classList.add("active");
+                    selectedDays.push(day);
+                }
+    
+                dayDiv.onclick = function () {
+                    if (this.classList.contains("active")) {
+                        this.classList.remove("active");
+                        selectedDays = selectedDays.filter(d => d !== day);
+                        localStorage.removeItem(`streak-${month}-${day}`);
+                    } else {
+                        this.classList.add("active");
+                        selectedDays.push(day);
+                        localStorage.setItem(`streak-${month}-${day}`, "true");
+                    }
+                    updateCounter(daysInMonth);
+                };
+    
+                streakContainer.appendChild(dayDiv);
+            }
+    
+            updateCounter(daysInMonth);
+        }
+    
+        function updateCounter(daysInMonth) {
+            streakCount = selectedDays.length;V
+            document.getElementById("counter").textContent = `Total Streak: ${streakCount}`;
+            document.getElementById("daysCounter").textContent = `Selected Days: ${selectedDays.join(", ") || "None"}`;
+    
+            let progress = (streakCount / daysInMonth) * 100;
+            document.getElementById("progressFill").style.width = `${progress}%`;
+        }
+    
+        generateDays();
+        document.getElementById("monthSelect").addEventListener("change", generateDays);
+    </script>
+    
+  
+    
+    
+
+<div style="background: linear-gradient(135deg, #f0f9ff, #cce7ff); padding: 50px; border-radius: 16px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); text-align: center;">
+    <h2 style="font-size: 2.8rem; font-weight: 700; color: #003366; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 4px solid #007acc; display: inline-block; padding-bottom: 8px;">
+        Our Features & Offerings
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1100px; margin: 0 auto;">
+        <div style="background: #ffffff; padding: 25px; border-radius: 12px; width: 320px; text-align: center; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+             onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.15)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.1)';">
+             
+            <h3 style="font-size: 1.6rem; color: #003366;">Yoga & Exercises</h3>
+            <p style="font-size: 1.2rem; color: #004d66;">Recommends different yoga asans & exercises according to your health issues.</p>
+        </div>
+
+        <div style="background: #ffffff; padding: 25px; border-radius: 12px; width: 320px; text-align: center; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+             onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.15)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.1)';" href a="https://www.doctronic.ai/ai-online-doctor/">
+            
+            <h3 style="font-size: 1.6rem; color: #003366;">24/7 Consultation</h3>
+            <p style="font-size: 1.2rem; color: #004d66;">Access expert medical advice anytime with our round-the-clock consultation services.</p>
+        </div>
+
+        <div style="background: #ffffff; padding: 25px; border-radius: 12px; width: 320px; text-align: center; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+             onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.15)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.1)';">
+             
+            <h3 style="font-size: 1.6rem; color: #003366;">Health Tracking</h3>
+            <p style="font-size: 1.2rem; color: #004d66;">Monitor your health stats and progress with our easy-to-use tracking tools.</p>
+        </div>
+    </div>
+</div>
+<script>
+    function getValue() {
+        var inputValue = document.getElementById('inputValue').value.trim().toLowerCase();
+
+        if (inputValue === "") {
+            alert("Please enter a value");
+            return;
+        }
+
+        // Check if keywords appear anywhere in the sentence
+        if (inputValue.includes("eat clean")) {
+            window.location.href = "eatclean.html?value=" + encodeURIComponent(inputValue);
+        } else if (inputValue.includes("yoga")) {
+            window.location.href = "yoga_exercise.html?value=" + encodeURIComponent(inputValue);
+        } else if (inputValue.includes("nearby doctors") || inputValue.includes("hospital")) {
+            window.location.href = "https://www.google.com/search?q=hospital+near+me";
+        } else if (inputValue.includes("contact") || inputValue.includes("support")) {
+            window.location.href = "https://www.doctronic.ai/ai-online-doctor/";
+        } else if (inputValue.includes("home remedies") ) {
+            window.location.href = "aushadhi.html?value=" + encodeURIComponent(inputValue);
+        } else {
+            alert("No matching result found!");
+        }
+    }
+
+    function startVoiceSearch() {
+        if (!('webkitSpeechRecognition' in window)) {
+            alert("Your browser does not support voice search.");
+            return;
+        }
+
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = "en-US";
+        recognition.start();
+
+        recognition.onresult = function(event) {
+            var voiceInput = event.results[0][0].transcript.toLowerCase();
+            document.getElementById('inputValue').value = voiceInput; // Set input field value
+            getValue(); // Process the search
+        };
+
+        recognition.onerror = function(event) {
+            alert("Error in voice recognition. Try again!");
+        };
+    }
+
+
+    function startVoiceSearch() {
+        if (!('webkitSpeechRecognition' in window)) {
+            alert("Your browser does not support voice search.");
+            return;
+        }
+
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = "en-US";
+        recognition.start();
+
+        recognition.onresult = function(event) {
+            var voiceInput = event.results[0][0].transcript.toLowerCase();
+            document.getElementById('inputValue').value = voiceInput; // Set input field value
+            getValue(); // Process the search
+        };
+
+        recognition.onerror = function(event) {
+            alert("Error in voice recognition. Try again!");
+        };
+    }
+
+
+var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<style>
+   body {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light Theme (Default) */
+.light-theme {
+    background: linear-gradient(135deg, #47e7fc, #1faadc);
+    color: #333;
+}
+
+/* Dark Theme */
+.dark-theme {
+    background-color: #0a0a0a;
+    color: #00ffea;
+}
+
+/* Chat Container */
+.chat-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Light Chat Box */
+.light-theme .chat-container {
+    background: rgb(7, 202, 237);
+    box-shadow: 0px 0px 15px rgba(20, 233, 212, 0.3);
+}
+
+/* Dark Chat Box */
+.dark-theme .chat-container {
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 0px 15px #00ffea;
+}
+
+/* Chat Box */
+.chat-box {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light Chat Box */
+.light-theme .chat-box {
+    background: #0dbff0;
+    color: #333;
+    border: 1px solid #141818;
+}
+
+/* Dark Chat Box */
+.dark-theme .chat-box {
+    background: #121212;
+    color: #00ffea;
+    border: 1px solid #00ffea;
+    
+}
+
+/* Input Area */
+.input-area {
+    display: flex;
+    margin-top: 10px;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light Input */
+.light-theme .input-area input {
+    background: rgb(242, 240, 240);
+    color: #333;
+    border: 1px solid #80deea;
+}
+
+/* Dark Input */
+.dark-theme .input-area input {
+    background: #222;
+    color: #00ffea;
+    border: 1px solid #00ffea;
+}
+
+/* Buttons */
+.input-area button,
+.ai-button,
+.theme-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+/* Light Theme Buttons */
+.light-theme .input-area button,
+.light-theme .ai-button,
+.light-theme .theme-button {
+    background: #11d7f1;
+    color: rgb(253, 249, 249);
+}
+
+.light-theme .input-area button:hover,
+.light-theme .ai-button:hover,
+.light-theme .theme-button:hover {
+    background: #26c6da;
+}
+
+/* Dark Theme Buttons */
+.dark-theme .input-area button,
+.dark-theme .ai-button,
+.dark-theme .theme-button {
+    background: #00ffea;
+    color: black;
+}
+
+.dark-theme .input-area button:hover,
+.dark-theme .ai-button:hover,
+.dark-theme .theme-button:hover {
+    background: #00ccbb;
+}
+
+/* Theme Toggle Button */
+.theme-button {
+    margin-top: 20px;
+}
+
+/* Close Button */
+.close-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+</style>
+<button id="aiBotButton" onclick="toggleChat()">🤖 Chat</button>
+
+<div class="chat-container" id="chatContainer">
+    <button class="close-btn" onclick="toggleChat()">X</button>
+    <h2>🤖 Chikitsak AI Bot</h2>
+    
+    <!-- Language Selector -->
+    <select id="language-select" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी (Hindi)</option>
+    </select>
+
+    <button id="theme-toggle" class="theme-button">Switch Theme</button>
+
+    <div class="chat-box" id="chatBox"></div>
+    <p class="typing" id="typing">Chikitsak AI is thinking...</p>
+
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Type or speak your symptoms..." onkeypress="handleKeyPress(event)">
+        <button onclick="getResponse()">Ask</button>
+        <button class="mic-button" id="micButton" onclick="startListening()">🎤</button>
+</div>
+    </div>
+</div>
+
+
+
+<style>
+    /* Floating button styling */
+    #aiBotButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #009688;
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        font-size: 16px;
+        border-radius: 100px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    #aiBotButton:hover {
+        background-color: #00796B;
+        transform: scale(1.1);
+    }
+
+    /* Chatbot animation */
+    .chat-container {
+    display: none;
+    position: fixed;
+    bottom: 80px;  /* Adjust as needed */
+    right: 20px;   /* Distance from the right edge */
+    left: auto;    /* Ensures it's not centered */
+    top: auto;     /* Prevents it from appearing in the middle */
+    transform: none; /* Removes centering effect */
+    max-width: 400px; /* Ensures a reasonable width */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.chat-container.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        const body = document.body;
+        const languageSelect = document.getElementById("language-select");
+
+        const savedTheme = localStorage.getItem("theme") || "light-theme";
+        body.classList.add(savedTheme);
+        updateThemeText(savedTheme);
+
+        themeToggleBtn.addEventListener("click", function () {
+            if (body.classList.contains("light-theme")) {
+                body.classList.replace("light-theme", "dark-theme");
+                localStorage.setItem("theme", "dark-theme");
+                updateThemeText("dark-theme");
+            } else {
+                body.classList.replace("dark-theme", "light-theme");
+                localStorage.setItem("theme", "light-theme");
+                updateThemeText("light-theme");
+            }
+        });
+
+        function updateThemeText(theme) {
+            themeToggleBtn.innerText = theme === "light-theme" ? "Switch to Dark Mode" : "Switch to Light Mode";
+            themeToggleBtn.style.color = theme === "light-theme" ? "white" : "black";
+            themeToggleBtn.style.background = theme === "light-theme" ? "#26c6da" : "#00ffea";
+        }
+
+        // Set default language to English
+        languageSelect.value = "en";
+        changeLanguage();
+    });
+
+    function speak(text) {
+        if (!window.speechSynthesis) {
+            alert("Speech synthesis is not supported in your browser.");
+            return;
+        }
+        window.speechSynthesis.cancel();
+
+        let speech = new SpeechSynthesisUtterance(text);
+
+        // Set language dynamically
+        if (currentLanguage === "hi") {
+            speech.lang = "hi-IN"; // Hindi
+        } else if (currentLanguage === "es") {
+            speech.lang = "es-ES"; // Spanish
+        } else {
+            speech.lang = "en-US"; // English
+        }
+        speech.rate = 1;
+        speech.pitch = 0.8;
+
+        setTimeout(() => {
+            window.speechSynthesis.speak(speech);
+        }, 100);
+    }
+
+    // Language Dictionary
+    const translations = {
+        "en": {
+            "greeting": "Hello! I'm Chikitsak AI Bot. How can I assist you today?",
+            "thinking": "Chikitsak AI is thinking...",
+            "not_found": "I'm not a doctor, but based on your symptoms, please consult a professional. would you like to consult a doctor?  if yes type yes or no",
+            "fever": "Fever is a symptom, not a disease. It may be caused by infections, flu, or other conditions. Stay hydrated and rest.",
+            "cough": "A cough may result from infections, allergies, or chronic lung diseases like asthma.",
+            "cold": "The common cold is a viral infection that affects the nose and throat. Rest and hydration are recommended.",
+            "headache": "Headaches can be caused by stress, dehydration, sinus issues, or migraines.",
+            "diabetes": "Diabetes is a chronic condition affecting blood sugar levels. Maintain a healthy diet and monitor glucose regularly.",
+            "hypertension": "High blood pressure can increase the risk of heart disease. Reduce salt intake and manage stress.",
+            "asthma": "Asthma causes breathing difficulties due to airway inflammation. Avoid triggers and use prescribed inhalers.",
+            "flu": "The flu is a viral infection with symptoms like fever, chills, and body aches. Rest and fluids help in recovery.",
+            "allergy": "Allergies occur when the immune system reacts to harmless substances. Avoid allergens and take antihistamines if necessary.",
+            "yes": "consulting a dotor please fill the form correctly",
+        },
+        "hi": {
+            "greeting": "नमस्ते! मैं चिकित्सक AI बॉट हूँ। मैं आपकी कैसे सहायता कर सकता हूँ?",
+            "thinking": "चिकित्सक एआई सोच रहा है...",
+            "not_found": "मैं डॉक्टर नहीं हूँ, लेकिन आपके लक्षणों के आधार पर कृपया एक पेशेवर से परामर्श करें।would you like to consult a doctor?  if yes type yes or no",
+            "fever": "बुखार एक लक्षण है, कोई बीमारी नहीं। यह संक्रमण, फ्लू या अन्य कारणों से हो सकता है। हाइड्रेटेड रहें और आराम करें।",
+            "cough": "खांसी संक्रमण, एलर्जी, या अस्थमा जैसी फेफड़ों की बीमारियों के कारण हो सकती है।",
+            "cold": "सर्दी एक वायरल संक्रमण है जो नाक और गले को प्रभावित करता है। आराम करें और हाइड्रेटेड रहें।",
+            "headache": "सिरदर्द तनाव, पानी की कमी, साइनस समस्या या माइग्रेन के कारण हो सकता है।",
+            "diabetes": "मधुमेह एक दीर्घकालिक बीमारी है जो रक्त शर्करा को प्रभावित करती है। संतुलित आहार लें और नियमित जांच करें।",
+            "hypertension": "उच्च रक्तचाप हृदय रोग के खतरे को बढ़ा सकता है। नमक का सेवन कम करें और तनाव प्रबंधन करें।",
+            "asthma": "अस्थमा से श्वास लेने में कठिनाई होती है। ट्रिगर्स से बचें और निर्धारित इनहेलर का उपयोग करें।",
+            "flu": "फ्लू एक वायरल संक्रमण है जिसमें बुखार, ठंड लगना और शरीर में दर्द होता है। आराम करें और तरल पदार्थ लें।",
+            "allergy": "एलर्जी तब होती है जब प्रतिरक्षा प्रणाली किसी हानिरहित पदार्थ पर प्रतिक्रिया करती है। एलर्जी कारकों से बचें और जरूरत हो तो दवा लें।",
+            "yes": "consulting a dotor please fill the form correctly",
+        },
+    };
+
+    function changeLanguage() {
+        currentLanguage = document.getElementById("language-select").value;
+        showWelcomeMessage();
+    }
+
+    function getResponse() {
+        let userInput = document.getElementById("userInput").value.toLowerCase();
+        let chatBox = document.getElementById("chatBox");
+        let typingIndicator = document.getElementById("typing");
+
+        if (userInput.trim() === "") return;
+
+        chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+        document.getElementById("userInput").value = "";
+        typingIndicator.innerText = translations[currentLanguage]["thinking"];
+        typingIndicator.style.display = "block";
+
+        let responseText = translations[currentLanguage]["not_found"];
+        
+        if (userInput.includes("yes")) {
+            window.location.href = "https://www.example.com/doctor-appointment";
+            return;
+        }
+
+        for (let key in translations[currentLanguage]) {
+            if (userInput.includes(key)) {
+                responseText = translations[currentLanguage][key];
+                break;
+            }
+        }
+
+        setTimeout(() => {
+            typingIndicator.style.display = "none";
+            chatBox.innerHTML += `<p><strong>Doctor AI:</strong> ${responseText}</p>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+            speak(responseText);
+        }, 1500);
+    }
+
+    function startListening() {
+        let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        let micButton = document.getElementById("micButton");
+
+        recognition.lang = currentLanguage === "hi" ? "hi-IN" : currentLanguage === "es" ? "es-ES" : "en-US";
+        recognition.start();
+        micButton.classList.add("listening");
+
+        recognition.onresult = function(event) {
+            let speechToText = event.results[0][0].transcript;
+            document.getElementById("userInput").value = speechToText;
+            getResponse();
+        };
+
+        recognition.onend = function() {
+            micButton.classList.remove("listening");
+        };
+
+        recognition.onerror = function(event) {
+            alert("Speech recognition error: " + event.error);
+            micButton.classList.remove("listening");
+        };
+    }
+
+    function toggleChat() {
+        let chatContainer = document.getElementById("chatContainer");
+        if (chatContainer.classList.contains("show")) {
+            chatContainer.classList.remove("show");
+            setTimeout(() => { chatContainer.style.display = "none"; }, 300);
+        } else {
+            chatContainer.style.display = "block";
+            setTimeout(() => { chatContainer.classList.add("show"); }, 10);
+            showWelcomeMessage();
+        }
+    }
+
+    function showWelcomeMessage() {
+        let chatBox = document.getElementById("chatBox");
+        if (!chatBox.innerHTML.includes(translations[currentLanguage]["greeting"])) {
+            chatBox.innerHTML += `<p><strong>Doctor AI:</strong> ${translations["en"]["greeting"]}</p>`;
+        }
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            getResponse();
+        }
+    }
+</script>
+</body> 
+</html> 

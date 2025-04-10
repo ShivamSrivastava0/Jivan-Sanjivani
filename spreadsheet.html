@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Google Sheets Data</title>
+</head>
+<body>
+    <h2>Doctor Consultation Details</h2>
+    <table id="sheetTable" border="1">
+        
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Appointment Date</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTBA6VTzBatrHlmf9yfhwqToYl4Uk3MhmKXr6q4yO3drCqa6JibGTtak29kwqG9_KuLAEklk5gxn_uh/pubhtml" width="100%" height="600"></iframe>
+
+
+    <script>
+        const sheetId = "1wSjKWlD7xPMP6yCI_dXKOw5Ea200Lsf6dGtRlb_wLeM";  // Your Google Sheet ID
+        const apiKey = "YOUR_GOOGLE_SHEETS_API_KEY";
+        const range = "Sheet1!A:D";  // Adjust range as needed
+
+        async function fetchData() {
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            const rows = data.values;
+            const tableBody = document.querySelector("#sheetTable tbody");
+
+            rows.slice(1).forEach(row => {
+                let tr = document.createElement("tr");
+                row.forEach(cell => {
+                    let td = document.createElement("td");
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            });
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>
